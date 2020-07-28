@@ -8,6 +8,7 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        <p><b>{{content}}</b></p>
                     </div>
                 </div>
             </div>
@@ -17,6 +18,7 @@
 
 <script>
     export default {
+        props: ['content'],
         mounted() {
             console.log('Component mounted.')
         }
