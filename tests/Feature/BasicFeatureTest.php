@@ -2,6 +2,9 @@
 
 use Tests\TestCase;
 
+/**
+ * @internal
+ */
 class BasicFeatureTest extends TestCase
 {
     public function testHomepage()
