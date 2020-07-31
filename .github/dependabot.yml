@@ -5,37 +5,37 @@
 
 version: 2
 updates:
-  - package-ecosystem: "composer" 
-    directory: "/" 
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: "composer"
-   allow:
-      - dependency-type: "all"
-   assignees:
-      - "corenbla"
-   target-branch: "develop"
+    -   package-ecosystem: "composer"
+        directory: "/"
+        schedule:
+            interval: "daily"
+        commit-message:
+            prefix: "composer"
+        allow:
+        -   dependency-type: "all"
+        assignees:
+        - "corenbla"
+        target-branch: "develop"
 
-  - package-ecosystem: "npm" 
-    directory: "/" 
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: "npm"
-   allow:
-      - dependency-type: "all"
-   assignees:
-      - "corenbla"
-   target-branch: "develop"
-      
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: "github-actions"
-   allow:
-      - dependency-type: "all"
-   assignees:
-      - "corenbla"
+    -   package-ecosystem: "npm"
+        directory: "/"
+        schedule:
+            interval: "daily"
+        commit-message:
+            prefix: "npm"
+        allow:
+        -   dependency-type: "all"
+        assignees:
+        - "corenbla"
+        target-branch: "develop"
+
+    -   package-ecosystem: "github-actions"
+        directory: "/"
+        schedule:
+            interval: "daily"
+        commit-message:
+            prefix: "github-actions"
+        allow:
+        -   dependency-type: "all"
+        assignees:
+        - "corenbla"
