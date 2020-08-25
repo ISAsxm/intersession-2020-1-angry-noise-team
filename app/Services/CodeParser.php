@@ -6,23 +6,26 @@ use App\Models\Project;
 
 class CodeParser
 {
-    public function usePhpCsFixer(Project $project, $withDryRun = false)
+    public function usePhpCsFixer(Project $project, $withDryRun = false): string
     {
-        if (PHP_OS_FAMILY === 'Windows') {
-            $executable = 'php-cs-fixer.bat';
-        } else {
-            $executable = 'php-cs-fixer';
-        }
-
-        $sprintf = sprintf(
-            '%s/vendor/bin/%s fix %s/app/Repositories/%s/ -vvv %s --using-cache=false --format=json',
-            base_path(),
-            $executable,
+        $command = sprintf('%s/vendor/bin/php-cs-fixer', base_path(), );
+        $arguments = sprintf(' fix %s/app/Repositories/%s/ -vvv %s --using-cache=false --format=json',
             storage_path(),
             escapeshellcmd($project->getName()),
-            $withDryRun ? '--dry-run' : ''
+            $withDryRun ? '--dry-run' : '',
         );
-        exec($sprintf, $output);
+
+        return $this->doExec($command, $arguments);
+    }
+
+    private function doExec(string $command, string $arguments): string
+    {
+        if (PHP_OS_FAMILY === 'Windows') {
+            $command .= '.bat';
+        }
+
+
+        exec($command . $arguments, $output);
 
         return $output[0];
     }
