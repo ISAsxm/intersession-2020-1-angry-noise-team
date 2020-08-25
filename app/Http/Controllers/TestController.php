@@ -11,6 +11,6 @@ class TestController extends Controller
     {
         $project = new Project('ClairiereEtCanopee', 'https://github.com/Corenbla/ClairiereEtCanopee.git');
 
-        return $codeParser->usePhpCsFixer($project);
+        return $codeParser->usePhpCsFixer($project, true);
     }
 }
