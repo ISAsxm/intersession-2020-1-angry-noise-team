@@ -21,7 +21,7 @@ window.Vue = require('vue');
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('example-component', {
   props: ['content'],
-  template: require('./components/ExampleComponent.vue').default
+  template: require('./components/Example/ExampleComponent.vue').default
 })
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,5 +30,5 @@ Vue.component('example-component', {
  */
 const app = new Vue({
     el: '#app',
-    
+
 });
