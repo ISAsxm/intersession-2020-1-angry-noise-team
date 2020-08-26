@@ -41,6 +41,6 @@ class CodeParser
 
         exec($command . $arguments, $output);
 
-        return implode($output) ?? json_encode('No output');
+        return !empty($output) ? implode($output) : json_encode('No output');
     }
 }
