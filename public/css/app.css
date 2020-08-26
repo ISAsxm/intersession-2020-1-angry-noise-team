@@ -10928,11 +10928,15 @@ a.text-dark:focus {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url(/images/background.jpg?e83e94d7186a5b0b589a82a821234a90);
-  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0 0;
   min-height: 100%;
   padding: 0;
   margin: 0;
