@@ -7,8 +7,9 @@ import 'bootstrap';
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-Vue.component('example-component', require('./components/Example/ExampleComponent.vue').default);
+Vue.component('nav-component', require('./components/nav/NavComponent.vue').default);
 Vue.component('header-component', require('./components/header/HeaderComponent.vue').default);
+Vue.component('example-component', require('./components/Example/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
