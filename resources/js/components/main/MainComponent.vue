@@ -12,7 +12,12 @@
     <img class="stylemain" :src="'images/stylemain.png'" />
     <div class="container-fluid mainBody">
       <section id="resume">
-        <h2 class="text-light">Présentation de Code Laïka</h2>
+        <div class="row">
+          <div class="col"><p>img</p></div>
+          <div class="col">
+            <h2 class="text-light">Présentation de Code Laïka</h2>
+          </div>
+        </div>
       </section>
       <section id="funding">
         <h2 class="text-light">Go Funding</h2>

@@ -10,7 +10,6 @@ import 'bootstrap';
 Vue.component('nav-component', require('./components/nav/NavComponent.vue').default);
 Vue.component('header-component', require('./components/header/HeaderComponent.vue').default);
 Vue.component('main-component', require('./components/main/MainComponent.vue').default);
-Vue.component('example-component', require('./components/Example/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
