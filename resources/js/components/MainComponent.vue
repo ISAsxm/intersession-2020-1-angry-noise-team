@@ -20,17 +20,38 @@
         </div>
       </section>
       <section id="funding">
-        <h2 class="text-light">Go Funding</h2>
+        <jumbotron :url-action=urlAction :url-img=urlImg :hash-value=hashValue></jumbotron>
       </section>
       <section id="tool">
         <h2 class="text-light">Tool</h2>
+      </section>
+      <section>
+
       </section>
     </div>
   </main>
 </template>
 
 <script>
+  import Jumbotron from './JumbotronComponent'
 export default {
-  name: "main-component"
+  name: "main-component",
+  props:{
+    urlAction : {
+      type:String,
+      required:true
+    },
+    urlImg : {
+      type:String,
+      required:true
+    },
+    hashValue:{
+      type:String,
+      required:true
+    }
+  },
+  components: {
+    Jumbotron
+  }
 };
 </script>
