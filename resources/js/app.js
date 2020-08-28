@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import 'bootstrap';
+import '@fortawesome/fontawesome-free/js/all.js';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
