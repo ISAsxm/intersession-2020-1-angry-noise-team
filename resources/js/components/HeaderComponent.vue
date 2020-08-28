@@ -113,7 +113,7 @@ h2 {
 }
 </style>
 <template>
-  <header id="#header" class="masthead text-center text-white">
+  <header id="header" class="masthead text-center text-white">
       <div class="jumbotron vertical-center">
         <div class="masthead-content">
             <div class="container">

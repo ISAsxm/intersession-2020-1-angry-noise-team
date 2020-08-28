@@ -12,6 +12,9 @@ import '@fortawesome/fontawesome-free/css/all.css';
 Vue.component('nav-component', require('./components/NavComponent.vue').default);
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);
 Vue.component('main-component', require('./components/MainComponent.vue').default);
+Vue.component('aboutus-component', require('./components/AboutusComponent.vue').default);
+Vue.component('tool-component', require('./components/ToolComponent.vue').default);
+Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

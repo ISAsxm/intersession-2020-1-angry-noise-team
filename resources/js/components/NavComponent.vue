@@ -33,7 +33,7 @@ margin: 0 0 10px 0;
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ml-auto">
                 <a href="#header" class="nav-item nav-link active text-light">Accueil</a>
-                <a href="#resume" class="nav-item nav-link text-light">A propos</a>
+                <a href="#aboutus" class="nav-item nav-link text-light">A propos</a>
                 <a href="#tool" class="nav-item nav-link text-light">Analyser</a>
                 <a href="#funding" class="nav-item nav-link text-light">Donations</a>
             </div>
