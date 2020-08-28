@@ -8,9 +8,9 @@ class Project
 
     private string $gitHubRepository;
 
-    public function __construct(string $name, string $gitHubRepository)
+    public function __construct(string $gitHubRepository)
     {
-        $this->name = $name;
+        $this->name = $this->createNameFromRepoUrl($gitHubRepository);
         $this->gitHubRepository = $gitHubRepository;
     }
 
@@ -36,5 +36,10 @@ class Project
         $this->gitHubRepository = $gitHubRepository;
 
         return $this;
+    }
+
+    private function createNameFromRepoUrl($repoUrl): string
+    {
+        return substr(strrchr($repoUrl, '/'), 1);
     }
 }
