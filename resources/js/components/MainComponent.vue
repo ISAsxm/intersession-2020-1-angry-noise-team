@@ -278,3 +278,34 @@ export default {
   name: "main-component"
 };
 </script>
+
+</script>
+};
+  }
+    Jumbotron
+  components: {
+  },
+      required:true
+    }
+      type:String,
+    hashValue:{
+    },
+      required:true
+    urlImg : {
+      type:String,
+    },
+      required:true
+      type:String,
+    urlAction : {
+  props:{
+  name: "main-component",
+export default {
+  import Jumbotron from './JumbotronComponent'
+<script>
+}
+  min-height: 400px;
+  background-color: white;
+.mainBody {
+}
+  width: 100%;
+.stylemain {
