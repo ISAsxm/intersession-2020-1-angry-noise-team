@@ -10933,7 +10933,7 @@ html {
 }
 
 body {
-  background-image: url(/images/background.jpg?e83e94d7186a5b0b589a82a821234a90);
+  background-image: url(/images/background2.jpg?9db4a5928e5389e290bc60ea69154f31);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 0 0;
@@ -10945,5 +10945,31 @@ body {
 @font-face {
   font-family: "Manrope", sans-serif;
   src: url(/fonts/Manrope-VariableFont_wght.ttf?980b9f32a3f482b7db688fa8df0488cd);
+}
+
+h1,
+h2 {
+  color: white;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: #222a59;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 35px !important;
+  text-align: left;
+  text-transform: uppercase;
+  color: #222a59;
+}
+
+h5 {
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: initial;
 }
 
