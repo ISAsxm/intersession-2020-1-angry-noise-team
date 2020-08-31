@@ -7,6 +7,12 @@ rgb(59, 89, 152);
 border-radius: 100%;
 object-fit: cover;
 }
+
+#aboutus span {
+  color:#35c8c1;
+  font-size:12px;
+  display:block;
+}
 </style>
 
 <template>
@@ -19,9 +25,12 @@ object-fit: cover;
       <div class="col-lg-6 text-center align-self-center">
         <h3>Code Laïka</h3>
         <p class="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo enim, vestibulum condimentum ligula et, hendrerit iaculis nulla. Proin ut elementum tellus. Sed eu elit eget massa aliquet mattis.
-          <a href="#">Phasellus nec arcu accumsan</a>, bibendum sapien volutpat, finibus leo. Aliquam quis maximus libero. Morbi imperdiet scelerisque aliquet. In eget tincidunt erat, eget semper nisl. Nulla condimentum hendrerit neque. Etiam aliquet elit a dui bibendum, eu tempus magna scelerisque. Aliquam neque dui, pharetra a mauris a, mattis faucibus velit.
+          Code Laïka est un outil vous permettant d'analyser votre code PHP. Grâce à son analyse robuste, votre PHP deviendra une oeuvre d'art en seulement quelques minutes. Plus besoin de recherches <a href="https://stackoverflow.com/" target="_blank">Stackoverflow</a> ou de demander à Fabieng<b>*</b> de vous sauver, vous avez bien mérité cette petite pause, profitez en pour prendre un café <i class="fas fa-coffee"></i>
         </p>
+        <p class="text">
+          Il suffit pour cela d'indiquer l'URL de votre repo puis de patienter quelques minutes. Une fois l'analyse terminée vous pouvez recevoir les résultats en indiquant votre adresse email.
+        </p>
+        <span class="pb-3">*Fabieng : A remplacer par le nom de votre supérieur</span>
         <button type="button" class="btn btn-primary my-2">Découvrir</button>
       </div>
     </div>
