@@ -1,3 +1,1 @@
-@component('mail::message')
-    <!-- TODO -->
-@endcomponent
+<!-- TODO -->

@@ -23,7 +23,7 @@ class ReportController extends Controller
 
     public function mail(CodeParser $codeParser): string
     {
-        $project = new Project('https://github.com/Corenbla/Exam-Wordpress.git');
+        $project = new Project('https://github.com/Corenbla/ClairiereEtCanopee.git');
 
         $report = $codeParser->doFullRun($project);
         Mail::to('foo@bar.test')->send(new ReportMail($report));

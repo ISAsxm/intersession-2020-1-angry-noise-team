@@ -40,6 +40,8 @@ class Project
 
     private function createNameFromRepoUrl($repoUrl): string
     {
-        return substr(strrchr($repoUrl, '/'), 1);
+        $repoNameWithGit = strrchr($repoUrl, '/');
+        $lastDotPosition = strrpos($repoNameWithGit, '.') - 1;
+        return substr($repoNameWithGit, 1, $lastDotPosition);
     }
 }
