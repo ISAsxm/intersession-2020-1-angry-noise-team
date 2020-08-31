@@ -8,7 +8,7 @@ header.masthead {
   background-position: center center;
   background-attachment: scroll;
   background-size: cover;
-  height:92vh;
+  height: 92vh;
 }
 
 header.masthead .masthead-content {
@@ -25,7 +25,7 @@ header.masthead .masthead-content .masthead-subheading {
 }
 
 .jumbotron {
-    background-color:transparent;
+  background-color: transparent;
 }
 
 .main-btn {
@@ -45,59 +45,65 @@ header.masthead .masthead-content .masthead-subheading {
   color: white;
   cursor: pointer;
   z-index: 5;
-  border:2px solid white;
-  border-radius:10px;
+  border: 2px solid white;
+  border-radius: 10px;
   -webkit-transition: all 0.4s ease-out 0s;
   -moz-transition: all 0.4s ease-out 0s;
   -ms-transition: all 0.4s ease-out 0s;
   -o-transition: all 0.4s ease-out 0s;
   transition: all 0.4s ease-out 0s;
   position: relative;
-  text-transform: uppercase; 
-  }
+  text-transform: uppercase;
+}
 
-  .main-btn:hover {
-      background-color:white;
-      color:#222A59;
-      text-decoration: none;
-  }
+.main-btn:hover {
+  background-color: white;
+  color: #222a59;
+  text-decoration: none;
+}
 
-  header ul {
-      list-style:none;
-      font-size:60px;
-  }
+header ul {
+  list-style: none;
+  font-size: 60px;
+}
 
-  header li {
-        display: inline-block;
-  }
+header li {
+  display: inline-block;
+}
 
-  header li .active {
-      background-color:white;
-      color:#222A59;
-  }
+header li .active {
+  background-color: white;
+  color: #222a59;
+}
 
 h1 {
-    text-transform:uppercase;
-    font-weight:600;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 h2 {
-    font-weight:400;
-    font-size:50px!important;
+  font-weight: 400;
+  font-size: 50px !important;
 }
 
-  h1,h2,h3,h4,h5,h6,p,span {
-    font-family: 'Manrope', sans-serif;
-  }
-  
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  font-family: "Manrope", sans-serif;
+}
 
-  @media (max-width: 767px) {
-    .main-btn {
-      font-size: 14px;
-      padding: 0 20px;
-      line-height: 40px; 
-      } 
-    }   
+@media (max-width: 767px) {
+  .main-btn {
+    font-size: 14px;
+    padding: 0 20px;
+    line-height: 40px;
+  }
+}
 
 @media (min-width: 992px) {
   header.masthead {
@@ -114,25 +120,23 @@ h2 {
 </style>
 <template>
   <header id="header" class="masthead text-center text-white">
-      <div class="jumbotron vertical-center">
-        <div class="masthead-content">
-            <div class="container">
-                <h1 class="masthead-heading mb-0">Solution PHP</h1>
-                <h2 class="masthead-subheading mb-4">Analysez votre code en 2-3 clics</h2>
-                <ul class="slider-btn rounded-buttons">
-                    <li><a class="main-btn rounded-one" href="#resume">Découvrir</a></li>
-                    <li><a class="main-btn rounded-two active" href="#tool">Analyser</a></li>
-                </ul>
-            </div>
+    <div class="jumbotron vertical-center">
+      <div class="masthead-content">
+        <div class="container">
+          <h1 class="masthead-heading mb-0">Solution PHP</h1>
+          <h2 class="masthead-subheading mb-4">Analysez votre code en 2-3 clics</h2>
+          <ul class="slider-btn rounded-buttons">
+            <li><a class="main-btn rounded-one" href="#resume">Découvrir</a></li>
+            <li><a class="main-btn rounded-two active" href="#tool">Analyser</a></li>
+          </ul>
         </div>
+      </div>
     </div>
   </header>
-
 </template>
 
 <script>
-
 export default {
-    name: 'header-component'
-}
+  name: "header-component"
+};
 </script>

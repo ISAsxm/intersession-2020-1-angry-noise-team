@@ -20,9 +20,7 @@ object-fit: cover;
         <h3>Code Laïka</h3>
         <p class="text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo enim, vestibulum condimentum ligula et, hendrerit iaculis nulla. Proin ut elementum tellus. Sed eu elit eget massa aliquet mattis.
-          <a
-            href="#"
-          >Phasellus nec arcu accumsan</a>, bibendum sapien volutpat, finibus leo. Aliquam quis maximus libero. Morbi imperdiet scelerisque aliquet. In eget tincidunt erat, eget semper nisl. Nulla condimentum hendrerit neque. Etiam aliquet elit a dui bibendum, eu tempus magna scelerisque. Aliquam neque dui, pharetra a mauris a, mattis faucibus velit.
+          <a href="#">Phasellus nec arcu accumsan</a>, bibendum sapien volutpat, finibus leo. Aliquam quis maximus libero. Morbi imperdiet scelerisque aliquet. In eget tincidunt erat, eget semper nisl. Nulla condimentum hendrerit neque. Etiam aliquet elit a dui bibendum, eu tempus magna scelerisque. Aliquam neque dui, pharetra a mauris a, mattis faucibus velit.
         </p>
         <button type="button" class="btn btn-primary my-2">Découvrir</button>
       </div>

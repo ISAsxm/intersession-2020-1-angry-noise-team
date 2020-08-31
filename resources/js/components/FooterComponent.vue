@@ -127,8 +127,8 @@
 .social-icons a.linkedin:hover {
   background-color: #007bb6;
 }
-.social-icons a.dribbble:hover {
-  background-color: #ea4c89;
+.social-icons a.github:hover {
+  background-color: #323131;
 }
 @media (max-width: 767px) {
   .social-icons li.title {
@@ -153,19 +153,19 @@
           <h6>Collaborateurs</h6>
           <ul class="footer-links">
             <li>
-              <a href="#">Corenting</a>
+              <a href="https://github.com/Corenbla" target="_blank">Corenting</a>
             </li>
             <li>
-              <a href="#">Tony</a>
+              <a href="https://github.com/Mangata-Dev" target="_blank">Tony</a>
             </li>
             <li>
-              <a href="#">Mélissande</a>
+              <a href="https://github.com/MelissandeH" target="_blank">Mélissande</a>
             </li>
             <li>
-              <a href="#">Florian</a>
+              <a href="https://github.com/florianmg" target="_blank">Florian</a>
             </li>
             <li>
-              <a href="#">Amaury</a>
+              <a href="https://github.com/AmauryLAPEYRE" target="_blank">Amaury</a>
             </li>
           </ul>
         </div>
@@ -202,22 +202,22 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <ul class="social-icons">
             <li>
-              <a class="facebook" href="#">
+              <a class="facebook" href="https://fr-fr.facebook.com/itakademy/" target="_blank">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li>
-              <a class="twitter" href="#">
+              <a class="twitter" href="https://twitter.com/it_akademy" target="_blank">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li>
-              <a class="dribbble" href="#">
-                <i class="fab fa-dribbble"></i>
+              <a class="github" href="https://github.com/itakademy" target="_blank">
+                <i class="fab fa-github"></i>
               </a>
             </li>
             <li>
-              <a class="linkedin" href="#">
+              <a class="linkedin" href="https://www.linkedin.com/company/it-akademy" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
               </a>
             </li>

@@ -135,7 +135,7 @@ span {
         <tool-component></tool-component>
       </div>
     </div>
-      <img class="stylemain" :src="'images/stylemainbottom.png'" />
+    <img class="stylemain" :src="'images/stylemainbottom.png'" />
   </main>
 </template>
 

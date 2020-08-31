@@ -70,9 +70,7 @@ input {
         </div>
 
         <h4 class="title-form">2.- Autorisez une connexion depuis un compte Github</h4>
-        <h4
-          class="title-form"
-        >3.- Votre repo devrait être scanné dans dans quelques minutes. Suivez l'avancée de l'analyse ci-dessous :</h4>
+        <h4 class="title-form">3.- Votre repo devrait être scanné dans dans quelques minutes. Suivez l'avancée de l'analyse ci-dessous :</h4>
         <div id="analyseTool" class="mb-3">
           <div class="row">
             <div class="col-lg-5 text-center">
@@ -93,9 +91,7 @@ input {
             </div>
           </div>
         </div>
-        <h4
-          class="title-form"
-        >4.- Recevez les détails de votre analyse en indiquant votre adresse email :</h4>
+        <h4 class="title-form">4.- Recevez les détails de votre analyse en indiquant votre adresse email :</h4>
         <div class="input-prepend">
           <span class="add-on">
             <i class="fas fa-at"></i>
