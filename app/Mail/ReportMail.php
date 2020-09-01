@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\Report;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -11,16 +10,16 @@ class ReportMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public Report $report;
+    public array $reportData;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Report $report)
+    public function __construct(array $reportData)
     {
-        $this->report = $report;
+        $this->reportData = $reportData;
     }
 
     /**
@@ -31,7 +30,7 @@ class ReportMail extends Mailable
     public function build()
     {
         return $this
-            ->from('contact@CodeLaïka.fr')
+            ->from('contact@CodeLaïka.fr')
             ->subject('Success !')
             ->view('emails.report')
         ;

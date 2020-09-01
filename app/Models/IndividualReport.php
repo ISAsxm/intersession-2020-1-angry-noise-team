@@ -1,16 +1,19 @@
 <?php
 
-
 namespace App\Models;
-
 
 class IndividualReport
 {
     public const PHP_CS_FIXER = 'PhpCsFixer';
     public const PHP_MESS_DETECTOR = 'PhpMessDetector';
 
-    public string $name;
-    public string $json;
+    private string $name;
+
+    private array $decodedJson;
+
+    private string $json;
+
+    private ReportData $reportData;
 
     /**
      * @throws \JsonException
@@ -18,7 +21,10 @@ class IndividualReport
     public function __construct(string $json, string $name)
     {
         $this->name = $name;
-        if (json_decode($json)) {
+        $this->decodedJson = json_decode($json, true);
+        $this->reportData = new ReportData($this);
+
+        if ($this->decodedJson) {
             $this->json = $json;
         } else {
             throw new \JsonException('Invalid JSON');
@@ -32,6 +38,16 @@ class IndividualReport
 
     public function getDecodedJson(): array
     {
-        return json_decode($this->json, true, 512, JSON_THROW_ON_ERROR);
+        return $this->decodedJson;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getReportData(): ReportData
+    {
+        return $this->reportData;
     }
 }

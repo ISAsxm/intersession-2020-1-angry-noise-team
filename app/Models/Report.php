@@ -8,7 +8,12 @@ use Illuminate\Support\Collection;
 
 class Report
 {
+    /**
+     * @var Collection|IndividualReport[]
+     */
     private Collection $individualReports;
+
+    private array $reportData = [];
 
     public function __construct(array $individualReports)
     {
@@ -25,5 +30,18 @@ class Report
     public function getIndividualReports(): Collection
     {
         return $this->individualReports;
+    }
+
+    public function getReportData(): array
+    {
+        foreach ($this->individualReports as $individualReport) {
+            $foo = (array) $individualReport->getReportData();
+
+            foreach ($foo['files'] as $file) {
+                $this->reportData[] = $file;
+            }
+        }
+
+        return $this->reportData;
     }
 }
