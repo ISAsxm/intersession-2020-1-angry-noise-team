@@ -49,6 +49,10 @@ input {
   position: relative;
   background-color: white;
 }
+
+.btn-outline-success:not(:disabled):not(.disabled):active {
+  background-color:#222a59;
+}
 </style>
 
 <template>

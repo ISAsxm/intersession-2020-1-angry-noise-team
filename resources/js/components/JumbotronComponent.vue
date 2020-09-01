@@ -63,13 +63,14 @@ white;
   <section id="funding">
     <div class="jumbotron">
       <h3>Go Funding</h3>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <p class="lead">Si vous souhaitez nous soutenir dans le développement de nos outils, vous pouvez nous faire un don en cliquant sur le bouton ci-dessous :</p>
       <hr class="my-4" />
       <p class="lead">
         <div v-show=show>
         <donation :url-action="urlAction" :url-img="urlImg" :hash-value="hashValue"></donation>
         </div>
-        <button class="btn btn-secondary" type="button" @click="formDonation" >Donation</button></p>
+        <button class="btn btn-secondary" type="button" @click="formDonation" >Donation</button>
+      </p>
     </div>
   </section>
 </template>

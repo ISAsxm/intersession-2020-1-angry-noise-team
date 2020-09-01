@@ -13,6 +13,10 @@ object-fit: cover;
   font-size:12px;
   display:block;
 }
+
+#aboutus button:active , #aboutus button:focus{
+background-color:#35c8c1;
+}
 </style>
 
 <template>

@@ -18,8 +18,8 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="http://pixelbuddha.net/" style="display:block; width:407px; height:100px; margin:0 auto 30px;">
-                                        <img src="{{asset('images/email/banniere.png')}}" height="100px" alt="Pixelbuddha" style="display:block; border:0; margin:0;">
+                                    <a style="display:block; width:407px; height:100px; margin:0 auto 30px;">
+                                        <img src="{{asset('images/email/banniere.png')}}" height="100px" alt="Code Laïka bannière lune" style="display:block; border:0; margin:0;">
                                     </a>
                                     <!-- begin wrapper -->
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -42,7 +42,7 @@
                                                 </td>
                                                 <td colspan="3" rowspan="3" bgcolor="#FFFFFF" style="padding:0 0 30px;">
                                                     <!-- begin content -->
-                                                    <img src="{{asset('images/email/header2.jpg')}}" width="600" height="200" alt="summer‘s coming trimm your sheeps" style="display:block; border:0; margin:0 0 44px; background:#eeeeee;">
+                                                    <a href="{{ url('/') }}"><img src="{{asset('images/email/header2.jpg')}}" width="600" height="200" alt="Code Laïka" style="display:block; border:0; margin:0 0 44px; background:#eeeeee;"></a>
                                                     <p style="margin:0 30px 33px;; text-align:center; text-transform:uppercase; font-size:24px; line-height:30px; font-weight:bold; color:#222a59;">
                                                         Resultat de votre analyse
                                                     </p>
@@ -54,21 +54,27 @@
                                                                     <p style="margin:0; font-size:1px; line-height:1px;">&nbsp;</p>
                                                                 </td>
                                                                 <td>
-                                                                    <a style="display:block; margin:0 0 14px;" href="http://pixelbuddha.net/"><img src="{{asset('images/email/computer2.png')}}" width="255" height="100" alt="More" style="display:block; margin:0; border:0;object-fit:contain;"></a>
-                                                                    <p style="font-size:14px; line-height:22px; font-weight:bold; color:#303E8C; margin:0 0 5px;"><a href="http://pixelbuddha.net/" style="color:#303E8C; text-decoration:none;">Nombre de lignes analysées</a></p>
-                                                                    <p style="margin:0 0 35px; font-size:12px; line-height:18px; color:#222A59;">Fusce amet ligula ornare tempus vulputate ipsum semper. Praesent non lorem odio. Fusce sed dui massa, eu viverra erat.</p>
+                                                                    <a style="display:block; margin:0 0 14px;"><img src="{{asset('images/email/computer2.png')}}" width="255" height="100" alt="Pictogramme ordinateur" style="display:block; margin:0; border:0;object-fit:contain;"></a>
+                                                                    <h3 style="text-align:center;font-size:30px;padding:0;margin:0;color:#222a59;">24053</h3>
+                                                                    <p style="font-size:14px; line-height:22px; font-weight:bold; color:#303E8C; margin:0 0 5px;text-align:center;">Lignes analysées</p>
+
                                                                 </td>
                                                                 <td width="30">
                                                                     <p style="margin:0; font-size:1px; line-height:1px;">&nbsp;</p>
                                                                 </td>
                                                                 <td>
-                                                                    <a style="display:block; margin:0 0 14px;" href="http://pixelbuddha.net/"><img src="{{asset('images/email/error2.png')}}" width="255" height="100" alt="More" style="display:block; margin:0; border:0;object-fit:contain;"></a>
-                                                                    <h3 style="text-align:center;font-size:30px;padding:0;margin:0;">80</h3>
-                                                                    <p style="font-size:14px; text-align:center; line-height:22px; font-weight:bold; color:#303E8C; margin:0 0 5px;"><a href="http://pixelbuddha.net/" style="color:#303E8C; text-decoration:none;">Nombre d'erreurs repérées</a></p>
-                                                                    <p style="margin:0 0 35px; font-size:12px;text-align:center; line-height:18px; color:#222a59;">Test</p>
+                                                                    <a style="display:block; margin:0 0 14px;"><img src="{{asset('images/email/error2.png')}}" width="255" height="100" alt="Pictogramme panneau danger" style="display:block; margin:0; border:0;object-fit:contain;"></a>
+                                                                    <h3 style="text-align:center;font-size:30px;padding:0;margin:0;color:#222a59;">80</h3>
+                                                                    <p style="font-size:14px; text-align:center; line-height:22px; font-weight:bold; color:#303E8C; margin:0 0 5px;">Erreurs repérées</p>
+
                                                                 </td>
                                                                 <td width="30">
                                                                     <p style="margin:0; font-size:1px; line-height:1px;">&nbsp;</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="30">
+                                                                    <p style="margin:0; font-size:1px; line-height:30px;">&nbsp;</p>
                                                                 </td>
                                                             </tr>
                                                             <tr valign="top">
@@ -76,62 +82,75 @@
                                                                     <p style="margin:0; font-size:1px; line-height:1px;">&nbsp;</p>
                                                                 </td>
                                                                 <td colspan="3">
-                                                                    <p style="font-size:14px; line-height:22px; font-weight:bold; color:#333333; margin:0 0 5px;"><a href="http://pixelbuddha.net/" style="color:#303E8C; text-decoration:none;">Détails de votre analyse :</a></p>
-                                                                    <table>
-                                                                        <tr style="text-align:left">
-                                                                            <th>
-                                                                                Id
-                                                                            </th>
-                                                                            <th>
-                                                                                Fichier
-                                                                            </th>
-                                                                            <th>
-                                                                                Détail
-                                                                            </th>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                Test
-                                                                            </td>
-                                                                            <td>
-                                                                                Test 2
-                                                                            </td>
-                                                                            <td>
-                                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere commodo mi vitae convallis. Sed ac ultricies quam, sagittis tincidunt arcu.
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                Test
-                                                                            </td>
-                                                                            <td>
-                                                                                Test 2
-                                                                            </td>
-                                                                            <td>
-                                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere commodo mi vitae convallis. Sed ac ultricies quam, sagittis tincidunt arcu.
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                Test
-                                                                            </td>
-                                                                            <td>
-                                                                                Test 2
-                                                                            </td>
-                                                                            <td>
-                                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere commodo mi vitae convallis. Sed ac ultricies quam, sagittis tincidunt arcu.
-                                                                            </td>
-                                                                        </tr>
+                                                                    <p style="font-size:14px; line-height:22px; font-weight:bold; color:#333333; margin:15px 0 15px;text-align: center;">Détails de votre analyse pour le repo : <a target="_blank" rel="noopener noreferrer" href="{{ url('/') }}" style="color:#303E8C; text-decoration:none;display: block;">https://github.com/it-akademy-students/intersession-2020-1-angry-noise-team</a></p>
+                                                                    <table style="border-collapse: collapse;border-bottom: 2px solid #333333;">
+                                                                        <thead style="background-color:#222a59;color:white;">
+                                                                            <tr style="text-align:left">
+                                                                                <th style="padding: 0px 0px 0px 15px;">
+                                                                                    Id
+                                                                                </th>
+                                                                                <th style="padding:10px;max-width:140px;word-wrap: break-word;">
+                                                                                    Fichier
+                                                                                </th>
+                                                                                <th style="padding: 0px 15px 0px 5px;">
+                                                                                    Détail
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);">
+                                                                                <td style="color:#222a59;padding: 0px 0px 0px 15px;">
+                                                                                    <h3 style="font-size:17px;">1</h3>
+                                                                                </td>
+                                                                                <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
+                                                                                    <h3 style="font-size:17px;">base.blade.php</h3>
+                                                                                </td>
+                                                                                <td style="color:#222A59;padding: 0px 15px 0px 5px;">
+                                                                                    <p style="font-size:14px;text-align:justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere commodo mi vitae convallis. Sed ac ultricies quam, sagittis tincidunt arcu.</p>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);background-color: rgba(34,42,89,0.1);">
+                                                                                <td style="color:#222a59;padding: 0px 0px 0px 15px;">
+                                                                                    <h3 style="font-size:17px;">2</h3>
+                                                                                </td>
+                                                                                <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
+                                                                                    <h3 style="font-size:17px;">HeaderComponent.vueeddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h3>
+                                                                                </td>
+                                                                                <td style="color:#222A59;padding: 0px 15px 0px 5px;">
+                                                                                    <p style="font-size:14px;text-align:justify;">Fusce lobortis nunc felis, at elementum elit congue et. Duis lacinia ex nisi, quis aliquet felis eleifend sed. Vivamus faucibus mattis nulla, sed eleifend mi sagittis ac. Suspendisse accumsan nisl eget rhoncus congue. </p>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);">
+                                                                                <td style="color:#222a59;padding: 0px 0px 0px 15px;">
+                                                                                    <h3 style="font-size:17px;">3</h3>
+                                                                                </td>
+                                                                                <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
+                                                                                    <h3 style="font-size:17px;">web.php</h3>
+                                                                                </td>
+                                                                                <td style="color:#222A59;padding: 0px 15px 0px 5px;">
+                                                                                    <p style="font-size:14px;text-align:justify;"> Praesent ultricies iaculis lorem non ultrices. Vivamus venenatis nibh consequat nibh elementum, ut accumsan metus blandit. Cras gravida lorem eget lorem bibendum, vitae varius enim sagittis. </p>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);background-color: rgba(34,42,89,0.1);">
+                                                                                <td style="color:#222a59;padding: 0px 0px 0px 15px;">
+                                                                                    <h3 style="font-size:17px;">4</h3>
+                                                                                </td>
+                                                                                <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
+                                                                                    <h3 style="font-size:17px;">Footercomponent.vue</h3>
+                                                                                </td>
+                                                                                <td style="color:#222A59;padding: 0px 15px 0px 5px;">
+                                                                                    <p style="font-size:14px;text-align:justify;">Nullam magna sapien, porta quis lorem at, congue condimentum velit. Etiam vitae ante ut dolor tincidunt gravida ut vitae eros. </p>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
                                                                     </table>
-                                                                </td>
-                                                                <td width="30">
-                                                                    <p style="margin:0; font-size:1px; line-height:1px;">&nbsp;</p>
+                                                                    <h4 style="font-size:15px; line-height:22px; font-weight:bold; margin:30px 0 15px;text-align: center;color:#303E8C">Merci d'avoir utilisé Code Laïka et bonnes corrections à vous !</h4>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                     <!-- /end articles -->
-                                                    <p style="margin:0; border-top:2px solid #e5e5e5; font-size:5px; line-height:5px; margin:0 30px 29px;">&nbsp;</p>
+                                                    <p style="margin:0; font-size:5px; line-height:5px; margin:0 30px 29px;">&nbsp;</p>
                                                     <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                         <tbody>
                                                             <tr valign="top">
@@ -150,8 +169,7 @@
                                                                 </td>
                                                                 <td width="100" style="vertical-align:middle;">
                                                                     <p style="margin:0; font-weight:bold; clear:both; font-size:12px; line-height:22px;">
-                                                                        <a href="http://pixelbuddha.net/" style="color:#36D9C8; text-decoration:none;">Visit website</a><br>
-                                                                        <a href="http://pixelbuddha.net/" style="color:#36D9C8; text-decoration:none;">Mobile version</a>
+                                                                        <a href="{{ url('/') }}" style="color:#36D9C8; text-decoration:none;">Site internet</a><br>
                                                                     </p>
                                                                 </td>
                                                                 <td width="30">
@@ -206,8 +224,8 @@
                                         </tbody>
                                     </table>
                                     <!-- end wrapper-->
-                                    <p style="margin:0; padding:34px 0 0; text-align:center; font-size:11px; line-height:13px; color:#333333;">
-                                        Don‘t want to recieve further emails? You can unsibscribe <a href="http://pixelbuddha.net/" style="color:#333333; text-decoration:underline;">here</a>
+                                    <p style="margin:0; padding:34px 0 0; text-align:center; font-size:11px; line-height:13px; color:white;">
+                                        Don‘t want to recieve further emails? You can unsibscribe <a href="http://pixelbuddha.net/" style="color:#36D9C8; text-decoration:underline;">here</a>
                                     </p>
                                 </td>
                             </tr>
