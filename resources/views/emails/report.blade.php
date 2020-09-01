@@ -98,50 +98,22 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
+                                                                        @foreach($reportData as $index => $row)
                                                                             <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);">
                                                                                 <td style="color:#222a59;padding: 0px 0px 0px 15px;">
-                                                                                    <h3 style="font-size:17px;">1</h3>
+                                                                                    <h3 style="font-size:17px;">{{ $index + 1 }}</h3>
                                                                                 </td>
                                                                                 <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
-                                                                                    <h3 style="font-size:17px;">base.blade.php</h3>
+                                                                                    <h3 style="font-size:14px;">{{ $row['file'] }}</h3>
                                                                                 </td>
                                                                                 <td style="color:#222A59;padding: 0px 15px 0px 5px;">
-                                                                                    <p style="font-size:14px;text-align:justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere commodo mi vitae convallis. Sed ac ultricies quam, sagittis tincidunt arcu.</p>
+                                                                                    @foreach($row['errors'] as $error)
+                                                                                        <h4 style="text-align:justify;margin-bottom: 5px">{{ $error['name'] }}</h4>
+                                                                                        <p style="font-size:14px;text-align:left;"> {{ $error['description'] }}</p>
+                                                                                    @endforeach
                                                                                 </td>
                                                                             </tr>
-                                                                            <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);background-color: rgba(34,42,89,0.1);">
-                                                                                <td style="color:#222a59;padding: 0px 0px 0px 15px;">
-                                                                                    <h3 style="font-size:17px;">2</h3>
-                                                                                </td>
-                                                                                <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
-                                                                                    <h3 style="font-size:17px;">HeaderComponent.vueeddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h3>
-                                                                                </td>
-                                                                                <td style="color:#222A59;padding: 0px 15px 0px 5px;">
-                                                                                    <p style="font-size:14px;text-align:justify;">Fusce lobortis nunc felis, at elementum elit congue et. Duis lacinia ex nisi, quis aliquet felis eleifend sed. Vivamus faucibus mattis nulla, sed eleifend mi sagittis ac. Suspendisse accumsan nisl eget rhoncus congue. </p>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);">
-                                                                                <td style="color:#222a59;padding: 0px 0px 0px 15px;">
-                                                                                    <h3 style="font-size:17px;">3</h3>
-                                                                                </td>
-                                                                                <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
-                                                                                    <h3 style="font-size:17px;">web.php</h3>
-                                                                                </td>
-                                                                                <td style="color:#222A59;padding: 0px 15px 0px 5px;">
-                                                                                    <p style="font-size:14px;text-align:justify;"> Praesent ultricies iaculis lorem non ultrices. Vivamus venenatis nibh consequat nibh elementum, ut accumsan metus blandit. Cras gravida lorem eget lorem bibendum, vitae varius enim sagittis. </p>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr style="border-bottom: 1px solid rgba(150,150,150,0.3);background-color: rgba(34,42,89,0.1);">
-                                                                                <td style="color:#222a59;padding: 0px 0px 0px 15px;">
-                                                                                    <h3 style="font-size:17px;">4</h3>
-                                                                                </td>
-                                                                                <td style="color:#222a59;padding:0px 5px;max-width:140px;word-wrap: break-word;">
-                                                                                    <h3 style="font-size:17px;">Footercomponent.vue</h3>
-                                                                                </td>
-                                                                                <td style="color:#222A59;padding: 0px 15px 0px 5px;">
-                                                                                    <p style="font-size:14px;text-align:justify;">Nullam magna sapien, porta quis lorem at, congue condimentum velit. Etiam vitae ante ut dolor tincidunt gravida ut vitae eros. </p>
-                                                                                </td>
-                                                                            </tr>
+                                                                        @endforeach
                                                                         </tbody>
                                                                     </table>
                                                                     <h4 style="font-size:15px; line-height:22px; font-weight:bold; margin:30px 0 15px;text-align: center;color:#303E8C">Merci d'avoir utilisé Code Laïka et bonnes corrections à vous !</h4>
