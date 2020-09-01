@@ -33,5 +33,7 @@
         "vue-loader": "^15.9.3",
         "vue-template-compiler": "^2.6.10"
     },
-    "dependencies": []
+    "dependencies": {
+       "@fortawesome/fontawesome-free": "^5.0"
+    }
 }

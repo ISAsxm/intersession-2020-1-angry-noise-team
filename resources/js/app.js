@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import 'bootstrap';
+import '@fortawesome/fontawesome-free/js/all.js';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -7,9 +9,12 @@ import 'bootstrap';
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-Vue.component('nav-component', require('./components/nav/NavComponent.vue').default);
-Vue.component('header-component', require('./components/header/HeaderComponent.vue').default);
-Vue.component('main-component', require('./components/main/MainComponent.vue').default);
+Vue.component('nav-component', require('./components/NavComponent.vue').default);
+Vue.component('header-component', require('./components/HeaderComponent.vue').default);
+Vue.component('main-component', require('./components/MainComponent.vue').default);
+Vue.component('aboutus-component', require('./components/AboutusComponent.vue').default);
+Vue.component('tool-component', require('./components/ToolComponent.vue').default);
+Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
