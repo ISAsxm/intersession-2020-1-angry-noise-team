@@ -37,7 +37,7 @@ class ReportController extends Controller
 
         Mail::to($userEmail)->send(new ReportMail($reportData));
 
-        return 'Mail sent.';
+        return response(null, 204);
     }
 
     private function getProjectFromRequest(Request $request): Project
