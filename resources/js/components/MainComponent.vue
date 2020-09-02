@@ -132,7 +132,7 @@ span {
       <div class="container mainBody">
         <aboutus-component></aboutus-component>
         <jumbotron :url-action=urlAction :url-img=urlImg :hash-value=hashValue></jumbotron>
-        <tool-component></tool-component>
+        <tool-component :csrf=csrf ></tool-component>
       </div>
     </div>
     <img class="stylemain" :src="'images/stylemainbottom.png'" />
@@ -155,6 +155,10 @@ export default {
     hashValue: {
       type: String,
       required: true
+    },
+    csrf: {
+      type:String,
+      required:true
     }
   },
   components: {

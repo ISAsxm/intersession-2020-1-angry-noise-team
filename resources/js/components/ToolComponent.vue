@@ -53,10 +53,7 @@ input {
   position: relative;
   background-color: white;
 }
-.wrapper-flex{
-  display:flex;
-  justify-content: space-around;
-}
+
   #input-repo{
     position: relative;
     min-height: 300px;
@@ -94,9 +91,8 @@ input {
                       placeholder="https://github.com/codelaika/codelaika"
               />
             </div>
-            <button @click="isRepo" type="button" class="btn btn-outline-success my-4">Récuperer le dépot</button>
+            <button @click="cloneRepo" type="button" class="btn btn-outline-success my-4">Récuperer le dépot</button>
           </div>
-<!--          <div  style="display: flex ; justify-content: center" class="col-2"><p>OU</p></div>-->
           <div class="divider-input"></div>
           <div  class="col-5">
             <div class="input-prepend sucess">
@@ -117,7 +113,7 @@ input {
                 {{ repo.name }}
               </option>
             </select>
-            <button @click="isRepo" type="button" class="btn btn-outline-success my-4">Récuperer le dépot</button>
+            <button @click="cloneRepo" type="button" class="btn btn-outline-success my-4">Récuperer le dépot</button>
           </div>
         </div>
         <h4 class="title-form">2.- Autorisez une connexion depuis un compte Github</h4>
@@ -132,7 +128,7 @@ input {
             <div id="commentTool" class="col-lg-7 text-center p-4">
               <span v-for="state in statusHistory" class="sucess py-2">
                 <span v-if="state.statusRequest === true" ><i class="fas fa-check fa-2x"></i></span>
-                <span v-else-if="state.statusRequest === true" ><i class="fas fa-times fa-2x"></i></span>
+                <span v-else-if="state.statusRequest === false" ><i class="fas fa-times fa-2x"></i></span>
                 <span v-else><i class="fas fa-info-circle fa-2x"></i></span>
                 {{state.label}}
               </span>
@@ -172,6 +168,12 @@ input {
         statusHistory : []
       }
     },
+    props:{
+      csrf:{
+        type:String,
+        required:true
+      }
+    },
     methods: {
       setProgress(state,status){
         this.waitingMsg =state;
@@ -193,12 +195,14 @@ input {
                   console.log(error);
                 })
       },
-      isRepo(){
+      cloneRepo(){
+        this.reset();
         this.onload=true;
         this.setProgress("Récupération du dépot...",'infos');
         axios
           .post('/cloneRepo',{'repoUrl':this.repoUrl})
           .then((response)=>{
+              console.log(response.data);
               if(response.data){
                 this.setProgress("Dépot récupéré !",true);
                 this.getReport();
@@ -234,7 +238,7 @@ input {
         this.setProgress("Envoie du rapport en cours...",'infos');
         if(this.reportStatus == '200'){
           axios
-            .post('/mail')
+            .post('/mail',{'reportData':this.results,'_token':this.csrf})
             .then((response)=>{
               this.results= response.data;
               this.setProgress("Rapport envoyé",true);
