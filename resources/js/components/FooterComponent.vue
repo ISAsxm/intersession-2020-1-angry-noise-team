@@ -145,7 +145,8 @@
         <div class="col-sm-12 col-md-6">
           <h6>About us</h6>
           <p class="text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nunc mi, ornare vel accumsan et, venenatis eu tellus. Fusce vel finibus sapien. Duis purus libero, sagittis quis tempor vel, sodales non justo. Praesent iaculis iaculis consectetur. Nam dapibus commodo dolor non sagittis. Vestibulum ante ipsum primis.
+            Code Laïka est un outil vous permettant d'analyser votre code PHP. Grâce à son analyse robuste, votre PHP deviendra une oeuvre d'art en seulement quelques minutes.
+            Il suffit pour cela d'indiquer l'URL de votre repo puis de patienter quelques minutes. Une fois l'analyse terminée vous pouvez recevoir les résultats en indiquant votre adresse email.
           </p>
         </div>
 

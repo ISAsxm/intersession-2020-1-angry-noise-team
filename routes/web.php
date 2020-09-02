@@ -1,6 +1,5 @@
 <?php
 
-use App\Services\PhpCsFixer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'TestController@test');
+Route::get('/parse', 'ReportController@test');
+Route::post('/parse', 'ReportController@test');
+Route::get('/mail', 'ReportController@mail');
+Route::get('/mailTest', 'ReportController@mailTest');
