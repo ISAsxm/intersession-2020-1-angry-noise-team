@@ -23,4 +23,5 @@ Route::get('/test', 'ReportController@test');
 Route::post('/test', 'ReportController@test');
 Route::post('/getRepos', 'GitController@getUserRepositories');
 Route::post('/cloneRepo', 'GitController@cloneRepository');
+Route::get('/cloneRepo', 'GitController@cloneRepository');
 Route::post('/mail', 'ReportController@mail');

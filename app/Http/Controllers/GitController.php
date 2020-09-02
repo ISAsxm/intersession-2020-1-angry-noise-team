@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CodeParser;
 use Github\Client;
 use Illuminate\Http\Request;
 
@@ -12,18 +13,17 @@ class GitController extends Controller
      *
      * @return int
      */
-    public function cloneRepository(Request $request)
+    public function cloneRepository(Request $request, CodeParser $codeParser)
     {
         abort_unless($repoUrl = $request->input('repoUrl'), 400, 'Please provide a "repoUrl" key as a GET or POST request');
 
         $path = storage_path('app\Repositories\\');
-        $cmd = escapeshellcmd("git -C $path clone " . $repoUrl);
-        $cmdResults = exec($cmd);
-        if ($cmdResults == null) {
-            return response(null, 201);
+        $output = $codeParser->cloneRepository($repoUrl, $path);
+        if (!$output) {
+            return response(null, 500);
         }
 
-        return response(null, 404);
+        return response(null, 200);
     }
 
     /**

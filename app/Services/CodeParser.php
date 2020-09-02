@@ -27,10 +27,11 @@ class CodeParser
         );
 
         $json = $this->doExec($command, $arguments);
+
         try {
             $individualReport = new IndividualReport($json, IndividualReport::PHP_CS_FIXER);
         } catch (\JsonException $e) {
-            throw new \LogicException(sprintf("%s gave invalid JSON as output%s",IndividualReport::PHP_CS_FIXER, $e->getMessage()));
+            throw new \LogicException(sprintf('%s gave invalid JSON as output%s', IndividualReport::PHP_CS_FIXER, $e->getMessage()));
         }
 
         return $individualReport;
@@ -48,15 +49,22 @@ class CodeParser
             implode(',', $ruleSets),
         );
 
-
         $json = $this->doExec($command, $arguments);
+
         try {
             $individualReport = new IndividualReport($json, IndividualReport::PHP_MESS_DETECTOR);
         } catch (\JsonException $e) {
-            throw new \LogicException(sprintf("%s gave invalid JSON as output%s", IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
+            throw new \LogicException(sprintf('%s gave invalid JSON as output%s', IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
         }
 
         return $individualReport;
+    }
+
+    public function cloneRepository($url, $path)
+    {
+        $cmd = sprintf('git -C %s clone %s', $path, escapeshellcmd($url));
+        exec($cmd, $output, $return_value);
+        return  $return_value === 0 ;
     }
 
     private function doExec(string $command, string $arguments): string
@@ -69,4 +77,5 @@ class CodeParser
 
         return !empty($output) ? implode($output) : json_encode('No output');
     }
+
 }
