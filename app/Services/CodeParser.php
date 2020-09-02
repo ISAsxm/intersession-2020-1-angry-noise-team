@@ -11,10 +11,11 @@ class CodeParser
 {
     public function doFullRun(Project $project): Report
     {
+        $phpLoc = $this->usePhpLoc($project);
         $phpCsFixer = $this->usePhpCsFixer($project, true);
         $phpMessDetector = $this->usePhpMessDetector($project, (new RuleSetFactory())->listAvailableRuleSets());
 
-        return new Report([$phpCsFixer, $phpMessDetector]);
+        return new Report([$phpCsFixer, $phpMessDetector, $phpLoc]);
     }
 
     public function usePhpCsFixer(Project $project, $withDryRun = false): IndividualReport
@@ -30,7 +31,7 @@ class CodeParser
         try {
             $individualReport = new IndividualReport($json, IndividualReport::PHP_CS_FIXER);
         } catch (\JsonException $e) {
-            throw new \LogicException(sprintf("%s gave invalid JSON as output%s",IndividualReport::PHP_CS_FIXER, $e->getMessage()));
+            throw new \LogicException(sprintf("%s gave invalid JSON as output%s", IndividualReport::PHP_CS_FIXER, $e->getMessage()));
         }
 
         return $individualReport;
@@ -48,7 +49,6 @@ class CodeParser
             implode(',', $ruleSets),
         );
 
-
         $json = $this->doExec($command, $arguments);
         try {
             $individualReport = new IndividualReport($json, IndividualReport::PHP_MESS_DETECTOR);
@@ -59,9 +59,30 @@ class CodeParser
         return $individualReport;
     }
 
+    public function usePhpLoc(Project $project): IndividualReport
+    {
+        $command = sprintf('%s/phploc.phar', base_path());
+        $arguments = sprintf(' %s/app/Repositories/%s/ | grep -i "Lines of Code (LOC)" | grep -Po "[\d]+"',
+            storage_path(),
+            escapeshellcmd($project->getName()),
+        );
+
+        $json = json_encode([
+            'numberOfLines' => $this->doExec($command, $arguments),
+        ], JSON_THROW_ON_ERROR);
+
+        try {
+            $individualReport = new IndividualReport($json, IndividualReport::PHP_LOC);
+        } catch (\JsonException $e) {
+            throw new \LogicException(sprintf("%s gave invalid JSON as output%s", IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
+        }
+
+        return $individualReport;
+    }
+
     private function doExec(string $command, string $arguments): string
     {
-        if (PHP_OS_FAMILY === 'Windows') {
+        if (PHP_OS_FAMILY === 'Windows' && file_exists($command . '.bat')) {
             $command .= '.bat';
         }
 

@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::get('/test', 'ReportController@test');
 Route::post('/test', 'ReportController@test');
 Route::get('/mail', 'ReportController@mail');
+Route::get('/mailTest', 'ReportController@mailTest');

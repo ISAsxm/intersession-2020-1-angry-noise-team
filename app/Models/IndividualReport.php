@@ -6,6 +6,7 @@ class IndividualReport
 {
     public const PHP_CS_FIXER = 'PhpCsFixer';
     public const PHP_MESS_DETECTOR = 'PhpMessDetector';
+    public const PHP_LOC = 'Phploc';
 
     private string $name;
 

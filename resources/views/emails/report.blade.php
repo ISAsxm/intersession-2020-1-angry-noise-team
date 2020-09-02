@@ -55,7 +55,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <a style="display:block; margin:0 0 14px;"><img src="{{asset('images/email/computer2.png')}}" width="255" height="100" alt="Pictogramme ordinateur" style="display:block; margin:0; border:0;object-fit:contain;"></a>
-                                                                    <h3 style="text-align:center;font-size:30px;padding:0;margin:0;color:#222a59;">24053</h3>
+                                                                    <h3 style="text-align:center;font-size:30px;padding:0;margin:0;color:#222a59;">{{ $linesParsed }}</h3>
                                                                     <p style="font-size:14px; line-height:22px; font-weight:bold; color:#303E8C; margin:0 0 5px;text-align:center;">Lignes analysées</p>
 
                                                                 </td>
@@ -64,7 +64,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <a style="display:block; margin:0 0 14px;"><img src="{{asset('images/email/error2.png')}}" width="255" height="100" alt="Pictogramme panneau danger" style="display:block; margin:0; border:0;object-fit:contain;"></a>
-                                                                    <h3 style="text-align:center;font-size:30px;padding:0;margin:0;color:#222a59;">80</h3>
+                                                                    <h3 style="text-align:center;font-size:30px;padding:0;margin:0;color:#222a59;">{{ $errorNumber }}</h3>
                                                                     <p style="font-size:14px; text-align:center; line-height:22px; font-weight:bold; color:#303E8C; margin:0 0 5px;">Erreurs repérées</p>
 
                                                                 </td>

@@ -14,8 +14,10 @@ class ReportData implements \ArrayAccess
     {
         if (isset($individualReport->getDecodedJson()['package']) && $individualReport->getDecodedJson()['package'] === 'phpmd') {
             $this->handlePhpMdData($individualReport);
+        } elseif (isset($individualReport->getDecodedJson()['files'])) {
+            $this->handlePhpCsFixerData($individualReport);
         } else {
-            $this->handlePhpCsFixerDate($individualReport);
+            $this->handlePhpLocData($individualReport);
         }
     }
 
@@ -35,7 +37,7 @@ class ReportData implements \ArrayAccess
         }
     }
 
-    private function handlePhpCsFixerDate(IndividualReport $individualReport)
+    private function handlePhpCsFixerData(IndividualReport $individualReport): void
     {
         $fixerFactory = new FixerFactory();
         $fixerFactory->registerBuiltInFixers();
@@ -60,6 +62,11 @@ class ReportData implements \ArrayAccess
                 ];
             }
         }
+    }
+
+    private function handlePhpLocData(IndividualReport $individualReport): void
+    {
+        $this->files = ['numberOfLines' => $individualReport->getDecodedJson()['numberOfLines']];
     }
 
     public function offsetSet($offset, $value): void

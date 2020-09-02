@@ -11,6 +11,8 @@ class ReportMail extends Mailable
     use Queueable, SerializesModels;
 
     public array $reportData;
+    public int $errorNumber = 0;
+    public int $linesParsed = 0;
 
     /**
      * Create a new message instance.
@@ -20,6 +22,8 @@ class ReportMail extends Mailable
     public function __construct(array $reportData)
     {
         $this->reportData = $reportData;
+        $this->setErrorNumber($reportData);
+        $this->setLinesParsed($reportData);
     }
 
     /**
@@ -34,5 +38,21 @@ class ReportMail extends Mailable
             ->subject('Success !')
             ->view('emails.report')
         ;
+    }
+
+    private function setErrorNumber(array $reportData)
+    {
+        foreach ($reportData as $file) {
+            if (isset($file['errors'])) {
+                $this->errorNumber += count($file['errors']);
+            }
+        }
+    }
+
+    private function setLinesParsed(array $reportData)
+    {
+        $this->linesParsed = $reportData['numberOfLines'];
+        unset($reportData['numberOfLines']);
+        $this->reportData = $reportData;
     }
 }

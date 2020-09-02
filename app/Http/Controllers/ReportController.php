@@ -40,6 +40,22 @@ class ReportController extends Controller
         return response(null, 204);
     }
 
+    public function mailTest(Request $request, CodeParser $codeParser): string
+    {
+        abort_unless(
+            $userEmail = $request->input('mail'),
+            400,
+            'Please provide a "mail" key as a GET or POST request'
+        );
+
+        $project = $this->getProjectFromRequest($request);
+        $report = $codeParser->doFullRun($project);
+
+        Mail::to($userEmail)->send(new ReportMail($report->getReportData()));
+
+        return 'Test mail sent.';
+    }
+
     private function getProjectFromRequest(Request $request): Project
     {
         abort_unless(
