@@ -112,7 +112,7 @@ a:hover {
 }
 
 section {
-  min-height:50vh;
+  min-height: 50vh;
 }
 
 .statut {
@@ -124,14 +124,67 @@ span {
   text-align: justify;
 }
 
+#return-to-top {
+  position: fixed;
+  bottom: 3%;
+  right: 2%;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: white;
+}
+#return-to-top i {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 13px;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#return-to-top:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+  color: #fff;
+  top: 5px;
+}
+
+.fa-chevron-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:20px;
+}
 </style>
 <template>
   <main>
+    <span class="fa-stack fa-2x">
+      <a href="#app" id="return-to-top">
+        <i class="fas fa-chevron-up"></i>
+      </a>
+    </span>
     <img class="stylemain" :src="'images/stylemain.png'" />
     <div id="content">
       <div class="container mainBody">
         <aboutus-component></aboutus-component>
-        <jumbotron :url-action=urlAction :url-img=urlImg :hash-value=hashValue></jumbotron>
+        <jumbotron :url-action="urlAction" :url-img="urlImg" :hash-value="hashValue"></jumbotron>
         <tool-component></tool-component>
       </div>
     </div>

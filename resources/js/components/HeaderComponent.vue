@@ -126,7 +126,7 @@ span {
           <h1 class="masthead-heading mb-0">Solution PHP</h1>
           <h2 class="masthead-subheading mb-4">Analysez votre code en 2-3 clics</h2>
           <ul class="slider-btn rounded-buttons">
-            <li><a class="main-btn rounded-one" href="#resume">Découvrir</a></li>
+            <li><a class="main-btn rounded-one" href="#aboutus">Découvrir</a></li>
             <li><a class="main-btn rounded-two active" href="#tool">Analyser</a></li>
           </ul>
         </div>
