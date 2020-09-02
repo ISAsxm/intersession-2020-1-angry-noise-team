@@ -35,7 +35,7 @@ background-color:#35c8c1;
           Il suffit pour cela d'indiquer l'URL de votre repo puis de patienter quelques minutes. Une fois l'analyse terminée vous pouvez recevoir les résultats en indiquant votre adresse email.
         </p>
         <span class="pb-3">*Fabieng : A remplacer par le nom de votre supérieur</span>
-        <button type="button" class="btn btn-primary my-2">Découvrir</button>
+        <button type="button" class="btn btn-primary my-2"><a href="#tool">Découvrir</a></button>
       </div>
     </div>
   </section>
