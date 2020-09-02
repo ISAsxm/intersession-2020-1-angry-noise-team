@@ -60,11 +60,18 @@ class CodeParser
         return $individualReport;
     }
 
-    public function cloneRepository($url, $path)
+    /**
+     * @param string $url  GitHub repository url
+     * @param string $path Absolute path where the repository is store
+     */
+    public function cloneRepository(string $url, string $path): void
     {
         $cmd = sprintf('git -C %s clone %s', $path, escapeshellcmd($url));
-        exec($cmd, $output, $return_value);
-        return  $return_value === 0 ;
+        exec($cmd, $output, $returnValue);
+
+        if ($returnValue !== 0) {
+            throw new \LogicException("Error while cloning repository. Error code: $returnValue");
+        }
     }
 
     private function doExec(string $command, string $arguments): string
@@ -77,5 +84,4 @@ class CodeParser
 
         return !empty($output) ? implode($output) : json_encode('No output');
     }
-
 }

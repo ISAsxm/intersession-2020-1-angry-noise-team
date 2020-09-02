@@ -18,11 +18,7 @@ class GitController extends Controller
         abort_unless($repoUrl = $request->input('repoUrl'), 400, 'Please provide a "repoUrl" key as a GET or POST request');
 
         $path = storage_path('app\Repositories\\');
-        $output = $codeParser->cloneRepository($repoUrl, $path);
-        if (!$output) {
-            return response(null, 500);
-        }
-
+        $codeParser->cloneRepository($repoUrl, $path);
         return response(null, 200);
     }
 
