@@ -65,12 +65,7 @@ input {
           <span class="add-on">
             <i class="fab fa-github"></i>
           </span>
-          <input
-            class="span2"
-            name="repoUrl"
-            type="url"
-            placeholder="https://github.com/codelaika/codelaika"
-          />
+          <input class="span2" name="repoUrl" type="url" placeholder="https://github.com/codelaika/codelaika"/>
         </div>
 
         <h4 class="title-form">2.- Autorisez une connexion depuis un compte Github</h4>
