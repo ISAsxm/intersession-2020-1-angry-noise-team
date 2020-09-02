@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'ReportController@test');
-Route::post('/test', 'ReportController@test');
+Route::get('/parse', 'ReportController@test');
+Route::post('/parse', 'ReportController@test');
 Route::get('/mail', 'ReportController@mail');
 Route::get('/mailTest', 'ReportController@mailTest');

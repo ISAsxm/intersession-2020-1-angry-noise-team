@@ -35,9 +35,9 @@ class Report
     public function getReportData(): array
     {
         foreach ($this->individualReports as $individualReport) {
-            $foo = (array) $individualReport->getReportData();
+            $reportData = (array) $individualReport->getReportData();
 
-            foreach ($foo['files'] as $key => $file) {
+            foreach ($reportData['files'] as $key => $file) {
                 if (!is_numeric($key)) {
                     $this->reportData[$key] = $file;
                 } else {

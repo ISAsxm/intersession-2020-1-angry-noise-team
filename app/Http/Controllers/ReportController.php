@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ReportController extends Controller
 {
-    public function test(CodeParser $codeParser, Request $request): string
+    public function parse(CodeParser $codeParser, Request $request): string
     {
         $project = $this->getProjectFromRequest($request);
 
