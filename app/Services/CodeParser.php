@@ -28,10 +28,11 @@ class CodeParser
         );
 
         $json = $this->doExec($command, $arguments);
+
         try {
             $individualReport = new IndividualReport($json, IndividualReport::PHP_CS_FIXER);
         } catch (\JsonException $e) {
-            throw new \LogicException(sprintf("%s gave invalid JSON as output%s", IndividualReport::PHP_CS_FIXER, $e->getMessage()));
+            throw new \LogicException(sprintf('%s gave invalid JSON as output%s', IndividualReport::PHP_CS_FIXER, $e->getMessage()));
         }
 
         return $individualReport;
@@ -50,13 +51,28 @@ class CodeParser
         );
 
         $json = $this->doExec($command, $arguments);
+
         try {
             $individualReport = new IndividualReport($json, IndividualReport::PHP_MESS_DETECTOR);
         } catch (\JsonException $e) {
-            throw new \LogicException(sprintf("%s gave invalid JSON as output%s", IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
+            throw new \LogicException(sprintf('%s gave invalid JSON as output%s', IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
         }
 
         return $individualReport;
+    }
+
+    /**
+     * @param string $url  GitHub repository url
+     * @param string $path Absolute path where the repository is store
+     */
+    public function cloneRepository(string $url, string $path): void
+    {
+        $cmd = sprintf('git -C %s clone %s', $path, escapeshellcmd($url));
+        exec($cmd, $output, $returnValue);
+
+        if ($returnValue !== 0) {
+            throw new \LogicException("Error while cloning repository. Error code: $returnValue");
+        }
     }
 
     public function usePhpLoc(Project $project): IndividualReport

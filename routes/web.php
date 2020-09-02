@@ -21,3 +21,6 @@ Route::get('/parse', 'ReportController@test');
 Route::post('/parse', 'ReportController@test');
 Route::get('/mail', 'ReportController@mail');
 Route::get('/mailTest', 'ReportController@mailTest');
+Route::post('/getRepos', 'GitController@getUserRepositories');
+Route::post('/cloneRepo', 'GitController@cloneRepository');
+Route::get('/cloneRepo', 'GitController@cloneRepository');
