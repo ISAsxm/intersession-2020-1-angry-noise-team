@@ -202,8 +202,7 @@ input {
         axios
           .post('/cloneRepo',{'repoUrl':this.repoUrl})
           .then((response)=>{
-              console.log(response.data);
-              if(response.data){
+              if(response.status === 201){
                 this.setProgress("Dépot récupéré !",true);
                 this.getReport();
               }else{

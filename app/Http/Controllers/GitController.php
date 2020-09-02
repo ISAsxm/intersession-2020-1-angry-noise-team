@@ -9,6 +9,7 @@ class GitController extends Controller
 {
     /**
      * Clone the repository.
+     *
      * @return int
      */
     public function cloneRepository(Request $request)
@@ -16,14 +17,13 @@ class GitController extends Controller
         abort_unless($repoUrl = $request->input('repoUrl'), 400, 'Please provide a "repoUrl" key as a GET or POST request');
 
         $path = storage_path('app\Repositories\\');
-
-        try {
-            exec("git -C $path clone " . $repoUrl);
-
-            return 1;
-        } catch (\Exception $e) {
-            return 0;
+        $cmd = escapeshellcmd("git -C $path clone " . $repoUrl);
+        $cmdResults = exec($cmd);
+        if ($cmdResults == null) {
+            return response(null, 201);
         }
+
+        return response(null, 404);
     }
 
     /**
