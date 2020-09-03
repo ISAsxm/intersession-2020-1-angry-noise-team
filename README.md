@@ -1,5 +1,3 @@
-## Code Laïka
-
 <img src="public/images/laika.png" width="250" style="object-fit:cover;"/>
 <img src="public/images/logodark.png" />
 
