@@ -21,17 +21,13 @@ class ReportController extends Controller
 
     public function mail(Request $request): string
     {
-        abort_unless(
-            $reportDataJson = $request->input('reportData'),
-            400,
-            'Please provide a "reportData" key as a GET or POST request',
-        );
+        $request->validate([
+            'reportData' => ['required', 'json'],
+            'mail' => ['required', 'email'],
+        ]);
 
-        abort_unless(
-            $userEmail = $request->input('mail'),
-            400,
-            'Please provide a "mail" key as a GET or POST request'
-        );
+        $reportDataJson = $request->input('reportData');
+        $userEmail = $request->input('mail');
 
         $reportData = json_decode($reportDataJson, true, 512, JSON_THROW_ON_ERROR);
 
@@ -42,27 +38,21 @@ class ReportController extends Controller
 
     public function mailTest(Request $request, CodeParser $codeParser): string
     {
-        abort_unless(
-            $userEmail = $request->input('mail'),
-            400,
-            'Please provide a "mail" key as a GET or POST request'
-        );
-
         $project = $this->getProjectFromRequest($request);
         $report = $codeParser->doFullRun($project);
 
-        Mail::to($userEmail)->send(new ReportMail($report->getReportData()));
+        Mail::to('foo@example.com')->send(new ReportMail($report->getReportData()));
 
         return 'Test mail sent.';
     }
 
     private function getProjectFromRequest(Request $request): Project
     {
-        abort_unless(
-            $repoUrl = $request->input('repoUrl'),
-            400,
-            'Please provide a "repoUrl" key as a GET or POST request',
-        );
+        $request->validate([
+            'repoUrl' => ['required', 'url'],
+        ]);
+
+        $repoUrl = $request->input('repoUrl');
 
         return new Project($repoUrl);
     }
