@@ -27,7 +27,7 @@ input {
   border: none;
   background: none;
   color: #222a59;
-  /*width:85%;*/
+  width:85%;
 }
 
 .wrapper:before {
@@ -83,13 +83,7 @@ input {
               <span class="add-on">
                 <i class="fab fa-github"></i>
               </span>
-              <input
-                      v-model="repoUrl"
-                      class="span2"
-                      name="repoUrl"
-                      type="url"
-                      placeholder="https://github.com/codelaika/codelaika"
-              />
+              <input v-model="repoUrl" class="span2" name="repoUrl" type="url" placeholder="https://github.com/codelaika/codelaika"/>
             </div>
             <button @click="cloneRepo" type="button" class="btn btn-outline-success my-4">Récuperer le dépot</button>
           </div>
@@ -99,13 +93,7 @@ input {
           <span class="add-on">
             <i class="fab fa-github"></i>
           </span>
-              <input
-                      v-model="user"
-                      class="span2"
-                      name="user"
-                      type="url"
-                      placeholder="Mangata-Dev"
-              />
+              <input v-model="user" class="span2" name="user" type="url" placeholder="Mangata-Dev"/>
             </div>
             <button @click="userRepositories" type="button" class="btn btn-outline-success my-4">Afficher mes dépots</button>
             <select name="repo" @change="" class="form-control" v-model='repoUrl' id="">
