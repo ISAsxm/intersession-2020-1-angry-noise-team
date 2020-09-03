@@ -47,6 +47,9 @@ class GitController extends Controller
         return json_encode($userRepoList);
     }
 
+    /**
+     * Get repository php files.
+     */
     private function getPhpFiles(Request $request): array
     {
         abort_unless($repoUrl = $request->input('repoUrl'), 400, 'Please provide a "repoUrl" key as a GET or POST request');
@@ -56,9 +59,11 @@ class GitController extends Controller
         return $githubClient->search()->code("repo:$repo extension:php");
     }
 
+    /**
+     * Get user repo name like user/repoName.
+     */
     private function getUserRepoSlashName($repoUrl): string
     {
-
         return str_replace('.git', '', str_replace('https://github.com/', '', $repoUrl));
     }
 }
