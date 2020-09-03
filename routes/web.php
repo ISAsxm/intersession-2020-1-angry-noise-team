@@ -17,10 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/parse', 'ReportController@parse');
 Route::post('/parse', 'ReportController@parse');
 
-Route::get('/mail', 'ReportController@mail');
+Route::post('/mail', 'ReportController@mail');
 Route::get('/mailTest', 'ReportController@mailTest');
 
 Route::post('/getRepos', 'GitController@getUserRepositories');

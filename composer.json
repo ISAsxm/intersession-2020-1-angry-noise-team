@@ -19,7 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "php-http/guzzle6-adapter": "2.0",
-        "phpmd/phpmd": "^2.8"
+        "phpmd/phpmd": "2.8.*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
