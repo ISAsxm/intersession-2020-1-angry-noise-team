@@ -16,7 +16,7 @@ class GitController extends Controller
     public function cloneRepository(Request $request, CodeParser $codeParser)
     {
         $request->validate([
-            'repoUrl' => ['required', 'string'],
+            'repoUrl' => ['required', 'url'],
         ]);
         $repoUrl = $request->input('repoUrl');
 
@@ -61,7 +61,7 @@ class GitController extends Controller
     private function getPhpFiles(Request $request): array
     {
         $request->validate([
-            'repoUrl' => ['required', 'string'],
+            'repoUrl' => ['required', 'url'],
         ]);
         $repoUrl = $request->input('repoUrl');
         $githubClient = new Client();
