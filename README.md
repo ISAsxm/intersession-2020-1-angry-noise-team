@@ -1,3 +1,5 @@
-## HELLO WORLD
+## Code Laïka
 
-![GitHub Logo](public/images/laika.png)
+![GitHub Logo](public/images/laika.png | width=100)
+
+> Outil PHP
