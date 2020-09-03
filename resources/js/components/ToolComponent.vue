@@ -140,7 +140,7 @@ input {
           <span class="add-on">
             <i class="fas fa-at"></i>
           </span>
-          <input class="span2" name="email" type="email" placeholder="codelaika@codelaika.fr" />
+          <input v-model="email" class="span2" name="email" type="email" placeholder="codelaika@codelaika.fr"/>
         </div>
         <button @click="sendReport" type="button" class="btn btn-outline-success my-4">Envoyer les résultats</button>
       </form>
@@ -165,7 +165,8 @@ input {
         selectedRepo : '',
         reportStatus:'',
         onload:false,
-        statusHistory : []
+        statusHistory : [],
+        email : '',
       }
     },
     props:{
@@ -238,9 +239,8 @@ input {
         this.setProgress("Envoie du rapport en cours...",'infos');
         if(this.reportStatus == '200'){
           axios
-            .post('/mail',{'reportData':this.results,'_token':this.csrf})
+            .post('/mail',{'reportData':this.results,'_token':this.csrf,'mail':this.email})
             .then((response)=>{
-              this.results= response.data;
               this.setProgress("Rapport envoyé",true);
               this.waitingMsg="";
               this.onload=false;
@@ -250,6 +250,8 @@ input {
               this.setProgress("Mailing error",false);
             })
         }
+        this.reset();
+        this.results = '';
       }
     },
     computed:{
