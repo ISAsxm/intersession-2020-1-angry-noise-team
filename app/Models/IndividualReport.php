@@ -18,9 +18,14 @@ class IndividualReport
 
     /**
      * @throws \JsonException
+     * @throws \LogicException when $json has no output.
      */
     public function __construct(string $json, string $name)
     {
+        if ($json === 'No output') {
+            throw new \LogicException("Json was a string with no output, please verify if the output is correct.");
+        }
+
         $this->name = $name;
         $this->decodedJson = json_decode($json, true);
         $this->reportData = new ReportData($this);
