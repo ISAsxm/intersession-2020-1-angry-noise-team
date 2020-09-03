@@ -9,11 +9,21 @@ use PHPMD\RuleSetFactory;
 
 class CodeParser
 {
+    private string $repositoryPath;
+
     public function doFullRun(Project $project): Report
     {
-        $phpLoc = $this->usePhpLoc($project);
-        $phpCsFixer = $this->usePhpCsFixer($project, true);
-        $phpMessDetector = $this->usePhpMessDetector($project, (new RuleSetFactory())->listAvailableRuleSets());
+        $this->repositoryPath = sprintf(
+            '%s/app/Repositories/%s/',
+            storage_path(),
+            escapeshellcmd($project->getName()),
+        );
+
+        $phpLoc = $this->usePhpLoc();
+        $phpCsFixer = $this->usePhpCsFixer(true);
+        $phpMessDetector = $this->usePhpMessDetector((new RuleSetFactory())->listAvailableRuleSets());
+
+        $this->deleteLocalRepository($this->repositoryPath);
 
         return new Report([$phpCsFixer, $phpMessDetector, $phpLoc]);
     }
@@ -29,12 +39,28 @@ class CodeParser
         );
     }
 
-    public function usePhpCsFixer(Project $project, bool $withDryRun = false): IndividualReport
+    /**
+     * @param string $url GitHub repository url
+     * @param string $path Absolute path where the repository is store
+     */
+    public function cloneRepository(string $url, string $path): void
+    {
+        $cmd = sprintf('git -C %s clone %s',
+            $path,
+            escapeshellcmd($url),
+        );
+        exec($cmd, $output, $returnValue);
+
+        if ($returnValue !== 0) {
+            throw new \LogicException("Error while cloning repository. Error code: $returnValue");
+        }
+    }
+
+    private function usePhpCsFixer(bool $withDryRun = false): IndividualReport
     {
         $command = sprintf('%s/vendor/bin/php-cs-fixer', base_path());
-        $arguments = sprintf(' fix %s/app/Repositories/%s/ -vv %s --using-cache=false --format=json',
-            storage_path(),
-            escapeshellcmd($project->getName()),
+        $arguments = sprintf('fix %s -vv %s --using-cache=false --format=json',
+            $this->repositoryPath,
             $withDryRun ? '--dry-run' : '',
         );
 
@@ -52,12 +78,11 @@ class CodeParser
     /**
      * @param string[] $ruleSets every RuleSets available can be fetched with PHPMD\RuleSetFactory::listAvailableRuleSets()
      */
-    public function usePhpMessDetector(Project $project, array $ruleSets): IndividualReport
+    private function usePhpMessDetector(array $ruleSets): IndividualReport
     {
         $command = sprintf('%s/vendor/bin/phpmd', base_path());
-        $arguments = sprintf(' %s/app/Repositories/%s/ json %s',
-            storage_path(),
-            escapeshellcmd($project->getName()),
+        $arguments = sprintf('%s json %s',
+            $this->repositoryPath,
             implode(',', $ruleSets),
         );
 
@@ -72,39 +97,17 @@ class CodeParser
         return $individualReport;
     }
 
-    /**
-     * @param string $url  GitHub repository url
-     * @param string $path Absolute path where the repository is store
-     */
-    public function cloneRepository(string $url, string $path): void
-    {
-        $cmd = sprintf('git -C %s clone %s', $path, escapeshellcmd($url));
-        exec($cmd, $output, $returnValue);
-
-        if ($returnValue !== 0) {
-            throw new \LogicException("Error while cloning repository. Error code: $returnValue");
-        }
-    }
-
-    public function usePhpLoc(Project $project): IndividualReport
+    private function usePhpLoc(): IndividualReport
     {
         $command = sprintf('%s/phploc.phar', base_path());
-        $arguments = sprintf(' %s/app/Repositories/%s/ | grep -i "Lines of Code (LOC)" | grep -Po "[\d]+"',
-            storage_path(),
-            escapeshellcmd($project->getName()),
+        $arguments = sprintf('%s | grep -i "Lines of Code (LOC)" | grep -Po "[\d]+"',
+            $this->repositoryPath,
         );
 
-        $json = json_encode([
-            'numberOfLines' => $this->doExec($command, $arguments),
-        ], JSON_THROW_ON_ERROR);
+        $phplocOutput = $this->doExec($command, $arguments);
+        $json = json_encode(['numberOfLines' => $phplocOutput], JSON_THROW_ON_ERROR);
 
-        try {
-            $individualReport = new IndividualReport($json, IndividualReport::PHP_LOC);
-        } catch (\JsonException $e) {
-            throw new \LogicException(sprintf('%s gave invalid JSON as output%s', IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
-        }
-
-        return $individualReport;
+        return new IndividualReport($json, IndividualReport::PHP_LOC);
     }
 
     private function doExec(string $command, string $arguments): string
@@ -113,8 +116,25 @@ class CodeParser
             $command .= '.bat';
         }
 
-        exec($command . $arguments, $output);
+        exec(sprintf("%s %s", $command, $arguments), $output);
 
         return !empty($output) ? implode($output) : json_encode('No output');
+    }
+
+    private function deleteLocalRepository(string $repositoryPath)
+    {
+        if (is_dir($repositoryPath)) {
+            $objects = scandir($repositoryPath);
+            foreach ($objects as $object) {
+                if ($object !== "." && $object !== "..") {
+                    if (is_dir($repositoryPath . DIRECTORY_SEPARATOR . $object) && !is_link($repositoryPath . "/" . $object)) {
+                        $this->deleteLocalRepository($repositoryPath . DIRECTORY_SEPARATOR . $object);
+                    } else {
+                        unlink($repositoryPath . DIRECTORY_SEPARATOR . $object);
+                    }
+                }
+            }
+            rmdir($repositoryPath);
+        }
     }
 }

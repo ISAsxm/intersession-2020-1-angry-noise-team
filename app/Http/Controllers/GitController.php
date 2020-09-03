@@ -10,8 +10,6 @@ class GitController extends Controller
 {
     /**
      * Clone the repository.
-     *
-     * @return int
      */
     public function cloneRepository(Request $request, CodeParser $codeParser)
     {
@@ -24,7 +22,7 @@ class GitController extends Controller
         if ($files['total_count'] === 0) {
             return response('Le dépot que vous voulez analyser ne contient aucun fichier PHP', 400);
         }
-        $path = storage_path('app\Repositories\\');
+        $path = storage_path('app' . DIRECTORY_SEPARATOR . 'Repositories' . DIRECTORY_SEPARATOR);
         $name = $codeParser->createNameFromRepoUrl($repoUrl);
         $dir = $path . $name;
         if (!is_dir($dir)) {

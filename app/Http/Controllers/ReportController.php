@@ -53,7 +53,8 @@ class ReportController extends Controller
         ]);
 
         $repoUrl = $request->input('repoUrl');
+        $name = $codeParser->createNameFromRepoUrl($repoUrl);
 
-        return new Project($repoUrl);
+        return new Project($repoUrl, $name);
     }
 }

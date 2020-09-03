@@ -210,7 +210,7 @@ input {
         axios
           .post('/parse',{'repoUrl':this.repoUrl})
           .then( (response)=>{
-            this.results = response.data;
+            this.results = JSON.stringify(response.data);
             this.reportStatus = response.status;
             this.setProgress("Rapport créé !",true);
             this.onload=false;

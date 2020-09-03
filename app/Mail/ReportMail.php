@@ -34,7 +34,7 @@ class ReportMail extends Mailable
     public function build()
     {
         return $this
-            ->from('contact@CodeLaïka.fr')
+            ->from('contact@CodeLaika.fr')
             ->subject('Success !')
             ->view('emails.report')
         ;
