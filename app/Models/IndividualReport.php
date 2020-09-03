@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use JsonException;
-use LogicException;
-
 class IndividualReport
 {
     public const PHP_CS_FIXER = 'PhpCsFixer';
@@ -26,7 +23,7 @@ class IndividualReport
     public function __construct(string $json, string $name)
     {
         if ($json === 'No output') {
-            throw new LogicException("Json was a string with no output, please verify if the output is correct.");
+            throw new \LogicException("Json was a string with no output, please verify if the output is correct.");
         }
 
         $this->name = $name;
