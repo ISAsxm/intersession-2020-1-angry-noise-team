@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Services\CodeParser;
 
 class Project
 {
@@ -10,7 +9,7 @@ class Project
 
     private string $gitHubRepository;
 
-    public function __construct(string $gitHubRepository, $name)
+    public function __construct(string $gitHubRepository, string $name)
     {
         $this->name = $name;
         $this->gitHubRepository = $gitHubRepository;

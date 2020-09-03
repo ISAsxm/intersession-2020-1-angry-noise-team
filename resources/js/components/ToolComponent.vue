@@ -186,14 +186,14 @@ input {
       },
       userRepositories(){
         axios
-                .post('/getRepos',{'user':this.user,'type':this.userType})
-                .then((response)=>{
-                  this.repositories = response.data;
-                  this.repoUrl = this.repositories[0].url;
-                })
-                .catch((error)=>{
-                  console.log(error);
-                })
+          .post('/getRepos',{'user':this.user,'type':this.userType})
+          .then((response)=>{
+            this.repositories = response.data;
+            this.repoUrl = this.repositories[0].url;
+          })
+          .catch((error)=>{
+            console.log(error);
+          })
       },
       cloneRepo(){
         this.reset();

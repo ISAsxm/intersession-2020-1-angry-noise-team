@@ -18,7 +18,7 @@ class CodeParser
         return new Report([$phpCsFixer, $phpMessDetector, $phpLoc]);
     }
 
-    public function createNameFromRepoUrl($repoUrl): string
+    public function createNameFromRepoUrl(string $repoUrl): string
     {
         $repoNameWithGit = strrchr($repoUrl, '/');
         $lastDotPosition = strrpos($repoNameWithGit, '.');
@@ -29,7 +29,7 @@ class CodeParser
         );
     }
 
-    public function usePhpCsFixer(Project $project, $withDryRun = false): IndividualReport
+    public function usePhpCsFixer(Project $project, bool $withDryRun = false): IndividualReport
     {
         $command = sprintf('%s/vendor/bin/php-cs-fixer', base_path());
         $arguments = sprintf(' fix %s/app/Repositories/%s/ -vv %s --using-cache=false --format=json',
