@@ -16,9 +16,17 @@ class GitController extends Controller
     public function cloneRepository(Request $request, CodeParser $codeParser)
     {
         abort_unless($repoUrl = $request->input('repoUrl'), 400, 'Please provide a "repoUrl" key as a GET or POST request');
-
+        $files = $this->getPhpFiles($request);
+        if ($files['total_count'] === 0) {
+            return response('Le dépot que vous voulez analyser ne contient aucun fichier PHP', 400);
+        }
         $path = storage_path('app\Repositories\\');
-        $codeParser->cloneRepository($repoUrl, $path);
+        $name = $codeParser->createNameFromRepoUrl($repoUrl);
+        $dir = $path . $name;
+        if (!is_dir($dir)) {
+            $codeParser->cloneRepository($repoUrl, $path);
+        }
+
         return response(null, 200);
     }
 
@@ -37,5 +45,20 @@ class GitController extends Controller
         }
 
         return json_encode($userRepoList);
+    }
+
+    private function getPhpFiles(Request $request): array
+    {
+        abort_unless($repoUrl = $request->input('repoUrl'), 400, 'Please provide a "repoUrl" key as a GET or POST request');
+        $githubClient = new Client();
+        $repo = $this->getUserRepoSlashName($repoUrl);
+
+        return $githubClient->search()->code("repo:$repo extension:php");
+    }
+
+    private function getUserRepoSlashName($repoUrl): string
+    {
+
+        return str_replace('.git', '', str_replace('https://github.com/', '', $repoUrl));
     }
 }

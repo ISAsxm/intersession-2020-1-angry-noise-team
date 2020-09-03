@@ -12,7 +12,7 @@ class ReportController extends Controller
 {
     public function parse(CodeParser $codeParser, Request $request): string
     {
-        $project = $this->getProjectFromRequest($request);
+        $project = $this->getProjectFromRequest($request, $codeParser);
 
         $report = $codeParser->doFullRun($project);
 
@@ -48,7 +48,7 @@ class ReportController extends Controller
             'Please provide a "mail" key as a GET or POST request'
         );
 
-        $project = $this->getProjectFromRequest($request);
+        $project = $this->getProjectFromRequest($request, $codeParser);
         $report = $codeParser->doFullRun($project);
 
         Mail::to($userEmail)->send(new ReportMail($report->getReportData()));
@@ -56,14 +56,14 @@ class ReportController extends Controller
         return 'Test mail sent.';
     }
 
-    private function getProjectFromRequest(Request $request): Project
+    private function getProjectFromRequest(Request $request, CodeParser $codeParser): Project
     {
         abort_unless(
             $repoUrl = $request->input('repoUrl'),
             400,
             'Please provide a "repoUrl" key as a GET or POST request',
         );
-
-        return new Project($repoUrl);
+        $name = $codeParser->createNameFromRepoUrl($repoUrl);
+        return new Project($repoUrl, $name);
     }
 }

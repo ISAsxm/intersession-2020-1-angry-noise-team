@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use App\Services\CodeParser;
+
 class Project
 {
     private string $name;
 
     private string $gitHubRepository;
 
-    public function __construct(string $gitHubRepository)
+    public function __construct(string $gitHubRepository, $name)
     {
-        $this->name = $this->createNameFromRepoUrl($gitHubRepository);
+        $this->name = $name;
         $this->gitHubRepository = $gitHubRepository;
     }
 
@@ -38,14 +40,4 @@ class Project
         return $this;
     }
 
-    private function createNameFromRepoUrl($repoUrl): string
-    {
-        $repoNameWithGit = strrchr($repoUrl, '/');
-        $lastDotPosition = strrpos($repoNameWithGit, '.');
-
-        return trim(
-            substr($repoNameWithGit, 0, $lastDotPosition ?: strlen($repoNameWithGit)),
-            '/.'
-        );
-    }
 }
