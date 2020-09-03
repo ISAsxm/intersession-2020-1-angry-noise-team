@@ -18,7 +18,18 @@ class CodeParser
         return new Report([$phpCsFixer, $phpMessDetector, $phpLoc]);
     }
 
-    public function usePhpCsFixer(Project $project, $withDryRun = false): IndividualReport
+    public function createNameFromRepoUrl(string $repoUrl): string
+    {
+        $repoNameWithGit = strrchr($repoUrl, '/');
+        $lastDotPosition = strrpos($repoNameWithGit, '.');
+
+        return trim(
+            substr($repoNameWithGit, 0, $lastDotPosition ?: strlen($repoNameWithGit)),
+            '/.'
+        );
+    }
+
+    public function usePhpCsFixer(Project $project, bool $withDryRun = false): IndividualReport
     {
         $command = sprintf('%s/vendor/bin/php-cs-fixer', base_path());
         $arguments = sprintf(' fix %s/app/Repositories/%s/ -vv %s --using-cache=false --format=json',
@@ -90,7 +101,7 @@ class CodeParser
         try {
             $individualReport = new IndividualReport($json, IndividualReport::PHP_LOC);
         } catch (\JsonException $e) {
-            throw new \LogicException(sprintf("%s gave invalid JSON as output%s", IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
+            throw new \LogicException(sprintf('%s gave invalid JSON as output%s', IndividualReport::PHP_MESS_DETECTOR, $e->getMessage()));
         }
 
         return $individualReport;

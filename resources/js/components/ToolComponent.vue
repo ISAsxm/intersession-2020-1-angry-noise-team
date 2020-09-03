@@ -187,14 +187,14 @@ input {
       },
       userRepositories(){
         axios
-                .post('/getRepos',{'user':this.user,'type':this.userType})
-                .then((response)=>{
-                  this.repositories = response.data;
-                  this.repoUrl = this.repositories[0].url;
-                })
-                .catch((error)=>{
-                  console.log(error);
-                })
+          .post('/getRepos',{'user':this.user,'type':this.userType})
+          .then((response)=>{
+            this.repositories = response.data;
+            this.repoUrl = this.repositories[0].url;
+          })
+          .catch((error)=>{
+            console.log(error);
+          })
       },
       cloneRepo(){
         this.reset();
@@ -203,17 +203,16 @@ input {
         axios
           .post('/cloneRepo',{'repoUrl':this.repoUrl})
           .then((response)=>{
-            console.log(response.status);
               if(response.status === 200){
                 this.setProgress("Dépot récupéré !",true);
                 this.getReport();
               }else{
-                this.setProgress("Dépot non trouvé !",false);
+                this.setProgress("Dépot non trouvé",false);
                 this.onload=false;
               }
           })
           .catch((error)=>{
-              this.setProgress("Erreur lors de la récupération !",false);
+              this.setProgress("Dépot non trouvé ou ne contient pas de fichier php",false);
               this.onload=false;
           })
       },
@@ -221,7 +220,7 @@ input {
         this.onload=true;
         this.setProgress("Analyse en cours...",'infos');
         axios
-          .post('/test',{'repoUrl':this.repoUrl})
+          .post('/parse',{'repoUrl':this.repoUrl})
           .then( (response)=>{
             this.results = response.data;
             this.reportStatus = response.status;

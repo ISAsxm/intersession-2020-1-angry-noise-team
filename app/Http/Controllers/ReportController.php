@@ -12,7 +12,7 @@ class ReportController extends Controller
 {
     public function parse(CodeParser $codeParser, Request $request): string
     {
-        $project = $this->getProjectFromRequest($request);
+        $project = $this->getProjectFromRequest($request, $codeParser);
 
         $report = $codeParser->doFullRun($project);
 
@@ -46,7 +46,7 @@ class ReportController extends Controller
         return 'Test mail sent.';
     }
 
-    private function getProjectFromRequest(Request $request): Project
+    private function getProjectFromRequest(Request $request, CodeParser $codeParser): Project
     {
         $request->validate([
             'repoUrl' => ['required', 'url'],
