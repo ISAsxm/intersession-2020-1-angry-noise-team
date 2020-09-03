@@ -3,13 +3,14 @@
 
 # Code Laïka
 
-> Code Laïka est un outil vous permettant d'analyser votre code PHP. Grâce à son analyse robuste, votre PHP deviendra une oeuvre d'art en seulement quelques minutes. Il suffit pour cela d'indiquer l'URL de votre repo puis de patienter quelques minutes. Une fois l'analyse terminée vous pouvez recevoir les résultats en indiquant votre adresse email. 
+> Code Laïka is a tool allowing you to analyze your PHP code. Thanks to its robust analysis, your PHP will become a masterpiece. You only need to provide repository's URL and wait a few minutes. Once the analysis is complete you can receive the results by entering your email address.
 
 ---
 
 ## Installation
 
-- All the `code` required to get started :
+- `nodejs`
+- `composer`
 
 ### Clone
 
@@ -25,14 +26,12 @@ $ composer install
 $ mv .env.example .env
 ```
 
-> edit .env.example as you need
+Edit .env.example as you need
 
 ---
 
 
 ## Contributing
-
-> To get started...
 
 ### Step 1
 
