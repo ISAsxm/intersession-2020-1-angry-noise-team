@@ -165,9 +165,6 @@
             <li>
               <a href="https://github.com/florianmg" target="_blank">Florian</a>
             </li>
-            <li>
-              <a href="https://github.com/AmauryLAPEYRE" target="_blank">Amaury</a>
-            </li>
           </ul>
         </div>
 

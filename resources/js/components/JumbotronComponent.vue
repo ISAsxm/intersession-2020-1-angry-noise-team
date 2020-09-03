@@ -62,7 +62,7 @@ white;
 <template>
   <section id="funding">
     <div class="jumbotron">
-      <h3>Go Funding</h3>
+      <h3>Donations</h3>
       <p class="lead">Si vous souhaitez nous soutenir dans le développement de nos outils, vous pouvez nous faire un don en cliquant sur le bouton ci-dessous :</p>
       <hr class="my-4" />
       <p class="lead">
