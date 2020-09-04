@@ -15,13 +15,16 @@ class Report
 
     private array $reportData = [];
 
-    public function __construct(array $individualReports)
+    private string $repoUrl;
+
+    public function __construct(array $individualReports, string $repoUrl)
     {
         $this->individualReports = collect($individualReports)
             ->reject(function ($individualReport) {
                 return !$individualReport instanceof IndividualReport;
             })
         ;
+        $this->repoUrl = $repoUrl;
     }
 
     /**
@@ -45,6 +48,8 @@ class Report
                 }
             }
         }
+
+        $this->reportData['repoUrl'] = $this->repoUrl;
 
         return $this->reportData;
     }
