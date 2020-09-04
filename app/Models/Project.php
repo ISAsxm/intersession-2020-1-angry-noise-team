@@ -7,12 +7,12 @@ class Project
 {
     private string $name;
 
-    private string $gitHubRepository;
+    private string $repoUrl;
 
-    public function __construct(string $gitHubRepository, string $name)
+    public function __construct(string $repoUrl, string $name)
     {
         $this->name = $name;
-        $this->gitHubRepository = $gitHubRepository;
+        $this->repoUrl = $repoUrl;
     }
 
     public function getName(): string
@@ -27,14 +27,14 @@ class Project
         return $this;
     }
 
-    public function getGitHubRepository(): string
+    public function getRepoUrl(): string
     {
-        return $this->gitHubRepository;
+        return $this->repoUrl;
     }
 
-    public function setGitHubRepository(string $gitHubRepository): Project
+    public function setRepoUrl(string $repoUrl): Project
     {
-        $this->gitHubRepository = $gitHubRepository;
+        $this->repoUrl = $repoUrl;
 
         return $this;
     }
