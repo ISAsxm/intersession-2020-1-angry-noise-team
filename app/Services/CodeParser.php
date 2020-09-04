@@ -13,6 +13,8 @@ class CodeParser
 
     public function doFullRun(Project $project): Report
     {
+        set_time_limit(120);
+
         $this->repositoryPath = sprintf(
             '%s/app/Repositories/%s/',
             storage_path(),
