@@ -11,14 +11,14 @@ jobs:
     name: Build Js/Css
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1 # Download the source code
+      - uses: actions/checkout@v2.3.2 # Download the source code
       - name: Npm build
         run: |
           npm install
           npm run prod
           cat public/mix-manifest.json # See asset versions in log
       - name: Upload build files
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2.1.4
         with:
           name: assets
           path: public
@@ -27,7 +27,7 @@ jobs:
     name: Build database, run tests and lint php code
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.2
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Dependencies
