@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "977249f7e0ced25c9deb56611c24a02b",
+    "content-hash": "fc3399220d448d09a4c9eda3e266c575",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2515,16 +2515,16 @@
         },
         {
             "name": "php-http/guzzle6-adapter",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/guzzle6-adapter.git",
-                "reference": "1e170d98db60780e399bced9a368151401f11b4c"
+                "reference": "6074a4b1f4d5c21061b70bab3b8ad484282fe31f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/1e170d98db60780e399bced9a368151401f11b4c",
-                "reference": "1e170d98db60780e399bced9a368151401f11b4c",
+                "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/6074a4b1f4d5c21061b70bab3b8ad484282fe31f",
+                "reference": "6074a4b1f4d5c21061b70bab3b8ad484282fe31f",
                 "shasum": ""
             },
             "require": {
@@ -2540,7 +2540,8 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "php-http/client-integration-tests": "^2.0"
+                "php-http/client-integration-tests": "^2.0",
+                "phpunit/phpunit": "^7.4"
             },
             "type": "library",
             "extra": {
@@ -2573,7 +2574,7 @@
                 "Guzzle",
                 "http"
             ],
-            "time": "2018-11-14T09:52:08+00:00"
+            "time": "2018-12-16T14:44:03+00:00"
         },
         {
             "name": "php-http/httplug",
