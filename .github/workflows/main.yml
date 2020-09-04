@@ -18,7 +18,7 @@ jobs:
           npm run prod
           cat public/mix-manifest.json # See asset versions in log
       - name: Upload build files
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2.1.4
         with:
           name: assets
           path: public
