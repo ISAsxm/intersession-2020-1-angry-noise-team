@@ -77,6 +77,12 @@ input {
       <h3 class="py-4">Analyser votre code</h3>
       <h4 class="title-form">1.- Entrez l'url de votre repo Github ou votre identifiant Github :</h4>
       <form class="text-left">
+        <div v-show="isError" id="alert-container" class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{error}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div  id="input-repo" class="row">
           <div class="col-5">
             <div class="input-prepend sucess">
@@ -155,6 +161,8 @@ input {
         onload:false,
         statusHistory : [],
         email : '',
+        isError:false,
+        error:''
       }
     },
     props:{
@@ -181,10 +189,13 @@ input {
             this.repoUrl = this.repositories[0].url;
           })
           .catch((error)=>{
-            console.log(error);
+            this.$alert('Attention utilisasteur GitHub non trouvé!','Pas de chance','error');
           })
       },
       cloneRepo(){
+        if(this.repoUrl == ''){
+          this.$alert('Veuillez entrée un url de dépot GitHub valide.','Hey!','error')
+        }
         this.reset();
         this.onload=true;
         this.setProgress("Récupération du dépot...",'infos');
@@ -218,7 +229,7 @@ input {
           })
           .catch((error)=>{
             this.onload=false;
-            this.setProgress("Analysis error",false);
+            this.setProgress("Erreur d'analyse",false);
           });
       },
       sendReport(){
