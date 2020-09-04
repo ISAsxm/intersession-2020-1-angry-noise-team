@@ -1,0 +1,49 @@
+name: Laravel Dev
+
+on:
+  push:
+    branches: [ develop, master, features/* ]
+  pull_request:
+    branches: [ develop, master ]
+
+jobs:
+  build-js:
+    name: Build Js/Css
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1 # Download the source code
+      - name: Npm build
+        run: |
+          npm install
+          npm run prod
+          cat public/mix-manifest.json # See asset versions in log
+      - name: Upload build files
+        uses: actions/upload-artifact@v1
+        with:
+          name: assets
+          path: public
+
+  laravel-tests:
+    name: Build database, run tests and lint php code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Directory Permissions
+        run: chmod -R 777 storage bootstrap/cache
+      - name: Create Database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
+        run: vendor/bin/phpunit
+      - name: Execute php-cs-fixer
+        run: composer run php-cs-fixer
