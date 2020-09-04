@@ -27,7 +27,7 @@ class CodeParser
 
         $this->deleteLocalRepository($this->repositoryPath);
 
-        return new Report([$phpCsFixer, $phpMessDetector, $phpLoc]);
+        return new Report([$phpCsFixer, $phpMessDetector, $phpLoc], $project->getRepoUrl());
     }
 
     public function createNameFromRepoUrl(string $repoUrl): string

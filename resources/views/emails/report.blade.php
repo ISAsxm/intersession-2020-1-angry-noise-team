@@ -82,7 +82,7 @@
                                                                     <p style="margin:0; font-size:1px; line-height:1px;">&nbsp;</p>
                                                                 </td>
                                                                 <td colspan="3">
-                                                                    <p style="font-size:14px; line-height:22px; font-weight:bold; color:#333333; margin:15px 0 15px;text-align: center;">Détails de votre analyse pour le repo : <a target="_blank" rel="noopener noreferrer" href="{{ url('/') }}" style="color:#303E8C; text-decoration:none;display: block;">https://github.com/it-akademy-students/intersession-2020-1-angry-noise-team</a></p>
+                                                                    <p style="font-size:14px; line-height:22px; font-weight:bold; color:#333333; margin:15px 0 15px;text-align: center;">Détails de votre analyse pour le repo : <a target="_blank" rel="noopener noreferrer" href="{{ url($repoUrl) }}" style="color:#303E8C; text-decoration:none;display: block;">{{ $repoUrl }}</a></p>
                                                                     <table style="border-collapse: collapse;border-bottom: 2px solid #333333;">
                                                                         <thead style="background-color:#222a59;color:white;">
                                                                             <tr style="text-align:left">
@@ -196,9 +196,6 @@
                                         </tbody>
                                     </table>
                                     <!-- end wrapper-->
-                                    <p style="margin:0; padding:34px 0 0; text-align:center; font-size:11px; line-height:13px; color:white;">
-                                        Don‘t want to recieve further emails? You can unsibscribe <a href="http://pixelbuddha.net/" style="color:#36D9C8; text-decoration:underline;">here</a>
-                                    </p>
                                 </td>
                             </tr>
                         </tbody>

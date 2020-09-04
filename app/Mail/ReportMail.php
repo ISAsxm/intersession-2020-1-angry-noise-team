@@ -11,6 +11,7 @@ class ReportMail extends Mailable
     use Queueable, SerializesModels;
 
     public array $reportData;
+    public string $repoUrl;
     public int $errorNumber = 0;
     public int $linesParsed = 0;
 
@@ -21,9 +22,10 @@ class ReportMail extends Mailable
      */
     public function __construct(array $reportData)
     {
-        $this->reportData = $reportData;
         $this->setErrorNumber($reportData);
         $this->setLinesParsed($reportData);
+        $this->setRepoUrl($reportData);
+        $this->setReportData($reportData);
     }
 
     /**
@@ -35,7 +37,7 @@ class ReportMail extends Mailable
     {
         return $this
             ->from('contact@CodeLaika.fr')
-            ->subject('Success !')
+            ->subject('Code Laïka - Votre rapport est arrivé !')
             ->view('emails.report')
         ;
     }
@@ -52,7 +54,21 @@ class ReportMail extends Mailable
     private function setLinesParsed(array $reportData)
     {
         $this->linesParsed = $reportData['numberOfLines'];
-        unset($reportData['numberOfLines']);
-        $this->reportData = $reportData;
+    }
+
+    private function setRepoUrl(array $reportData)
+    {
+        $this->repoUrl = $reportData['repoUrl'];
+    }
+
+    private function setReportData(array $reportData)
+    {
+        foreach ($reportData as $index => $file) {
+            if (!is_numeric($index)) {
+                unset($reportData[$index]);
+            }
+
+            $this->reportData = $reportData;
+        }
     }
 }
