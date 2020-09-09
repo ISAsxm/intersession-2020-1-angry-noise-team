@@ -20,7 +20,7 @@
         "laravel/ui": "^2.1",
         "symfony/http-kernel": "^5.1.5",
         "php-http/guzzle6-adapter": "2.0",
-        "phpmd/phpmd": "2.8.*"
+        "phpmd/phpmd": "2.9.*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
