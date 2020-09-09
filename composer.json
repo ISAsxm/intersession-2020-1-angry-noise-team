@@ -19,7 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "symfony/http-kernel": "^5.1.5",
-        "php-http/guzzle6-adapter": "2.0",
+        "php-http/guzzle6-adapter": "2.0.1",
         "phpmd/phpmd": "2.8.*"
     },
     "require-dev": {
