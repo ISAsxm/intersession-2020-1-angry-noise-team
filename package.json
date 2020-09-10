@@ -21,7 +21,7 @@
         "axios": "^0.19",
         "babel-loader": "^8.1.0",
         "babel-preset-vue": "^2.0.2",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.5.2",
         "cross-env": "^7.0.2",
         "jquery": "^3.5.1",
         "laravel-mix": "^5.0.5",
